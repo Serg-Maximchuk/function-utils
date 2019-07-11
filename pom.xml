@@ -4,6 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <name>Function utils</name>
+
+    <description>Dependency-free utility library born to reduce the code size and increase it's readability when dealing
+        with lambdas, and some more! It will help you to write java code in more functional style.
+    </description>
+
+    <url>https://github.com/serg-maximchuk/function-utils</url>
+
     <groupId>utils.functions</groupId>
     <artifactId>function-utils</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -30,8 +38,56 @@
                         </compilerArgs>
                     </configuration>
                 </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>3.1.1</version>
+                    <executions>
+                        <execution>
+                            <id>attach-javadocs</id>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>3.1.0</version>
+                    <executions>
+                        <execution>
+                            <id>attach-sources</id>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Serhii Maksymchuk</name>
+            <email>serg.maximchuk@gmail.com</email>
+            <organization>-</organization>
+            <organizationUrl>https://github.com/serg-maximchuk</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/serg-maximchuk/function-utils.git</connection>
+        <developerConnection>scm:git:ssh://github.com:Serg-Maximchuk/function-utils.git</developerConnection>
+        <url>http://github.com/serg-maximchuk/function-utils/tree/master</url>
+    </scm>
 
 </project>
