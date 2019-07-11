@@ -16,7 +16,7 @@ public final class Value {
      * </pre>
      * You can write it in more imperative way:
      * <pre>
-     *   return Value.with(new SomeType(), some -> {
+     *   return Value.with(new SomeType(), some -&gt; {
      *     some.setSomeInt(2);
      *     some.setSomeString(&quot;string&quot;);
      *     some.setSomethingMore(new Something());
@@ -24,11 +24,11 @@ public final class Value {
      * </pre>
      * Or:
      * <pre>
-     *   return with(new HashSet<>(), set -> set.add(new Object()));
+     *   return with(new HashSet&lt;&gt;(), set -&gt; set.add(new Object()));
      * </pre>
      * Or:
      * <pre>
-     *   return with(new HttpHeaders(), headers -> headers.add(AUTHORIZATION, "Basic ..."));
+     *   return with(new HttpHeaders(), headers -&gt; headers.add(AUTHORIZATION, "Basic ..."));
      * </pre>
      * Or even better:
      * <pre>
@@ -56,7 +56,7 @@ public final class Value {
      * </pre>
      * You can write it in more imperative way:
      * <pre>
-     *   return Value.with(new SomeType(), some -> {
+     *   return Value.with(new SomeType(), some -&gt; {
      *     some.setSomeInt(2);
      *     some.setSomeString(&quot;string&quot;);
      *     some.setSomethingMore(new Something());
@@ -64,11 +64,11 @@ public final class Value {
      * </pre>
      * Or:
      * <pre>
-     *   return with(new HashSet<>(), set -> set.add(new Object()));
+     *   return with(new HashSet&lt;&gt;(), set -&gt; set.add(new Object()));
      * </pre>
      * Or:
      * <pre>
-     *   return with(new HttpHeaders(), headers -> headers.add(AUTHORIZATION, "Basic ..."));
+     *   return with(new HttpHeaders(), headers -&gt; headers.add(AUTHORIZATION, "Basic ..."));
      * </pre>
      * Or even better:
      * <pre>
