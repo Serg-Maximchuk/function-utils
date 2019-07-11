@@ -12,12 +12,13 @@
 
     <url>https://github.com/serg-maximchuk/function-utils</url>
 
-    <groupId>utils.functions</groupId>
+    <groupId>io.github.serg-maximchuk</groupId>
     <artifactId>function-utils</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>8</java.version>
     </properties>
 
@@ -66,6 +67,11 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+            </resource>
+        </resources>
     </build>
 
     <licenses>
@@ -88,6 +94,21 @@
         <connection>scm:git:git://github.com/serg-maximchuk/function-utils.git</connection>
         <developerConnection>scm:git:ssh://github.com:Serg-Maximchuk/function-utils.git</developerConnection>
         <url>http://github.com/serg-maximchuk/function-utils/tree/master</url>
+        <tag>HEAD</tag>
     </scm>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>sonatype-nexus-snapshots</id>
+            <name>Sonatype Nexus snapshot repository</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>sonatype-nexus-staging</id>
+            <name>Sonatype Nexus release repository</name>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
 
 </project>
