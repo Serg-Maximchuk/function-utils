@@ -14,7 +14,7 @@
 
     <groupId>utils.functions</groupId>
     <artifactId>function-utils</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <packaging>jar</packaging>
 
     <properties>
