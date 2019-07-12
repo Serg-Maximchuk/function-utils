@@ -11,7 +11,7 @@ class ThrowingConsumerTest {
     private static final String EXPECTED = STR_1 + STR_2;
 
     @Test
-    void throwingBiConsumer_When_DoesNotThrowException() {
+    void throwingConsumer_When_DoesNotThrowException() {
         StringBuilder stringBuilder = new StringBuilder(STR_1);
 
         ThrowingConsumer<String> doesNotThrowConsumer = stringBuilder::append;
@@ -21,7 +21,7 @@ class ThrowingConsumerTest {
     }
 
     @Test
-    void throwingBiConsumer_When_ThrowingException() {
+    void throwingConsumer_When_ThrowingException() {
         ThrowingConsumer<String> throwingConsumer = (__) -> {
             throw new TestCheckedException();
         };
