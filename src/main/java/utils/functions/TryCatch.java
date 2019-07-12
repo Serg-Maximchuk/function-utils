@@ -8,7 +8,7 @@ public final class TryCatch {
      * @return the supplier result
      * @see TryCatch#rethrowOnException(utils.functions.ThrowingRunnable)
      */
-    public static <T> T rethrowOnException(ThrowingSupplier<T> supplier) {
+    public static <T> T rethrowOnException(ThrowingSupplier<? extends T> supplier) {
         try {
             return supplier.get();
         } catch (Exception e) {

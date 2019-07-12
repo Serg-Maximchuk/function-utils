@@ -46,7 +46,7 @@ public final class Functions {
      * @return the {@code value}
      * @see Functions#withThrowing(java.lang.Object, utils.functions.ThrowingConsumer)
      */
-    public static <T> T with(T value, Consumer<T> consumer) {
+    public static <T> T with(T value, Consumer<? super T> consumer) {
         return Value.with(value, consumer);
     }
 
@@ -87,15 +87,15 @@ public final class Functions {
      * @return the {@code value}
      * @see Functions#with(java.lang.Object, java.util.function.Consumer)
      */
-    public static <T> T withThrowing(T value, ThrowingConsumer<T> consumer) {
+    public static <T> T withThrowing(T value, ThrowingConsumer<? super T> consumer) {
         return Value.withThrowing(value, consumer);
     }
 
-    public static <T, R> R map(T value, Function<T, R> function) {
+    public static <T, R> R map(T value, Function<? super T, ? extends R> function) {
         return Value.map(value, function);
     }
 
-    public static <T, R> R mapThrowing(T value, ThrowingFunction<T, R> function) {
+    public static <T, R> R mapThrowing(T value, ThrowingFunction<? super T, ? extends R> function) {
         return Value.mapThrowing(value, function);
     }
 
@@ -103,12 +103,12 @@ public final class Functions {
         return SneakyThrow.sneakyThrow(throwable);
     }
 
-    public static <T> void withEach(List<T> lst, Consumer<T> consumer) {
+    public static <T> void withEach(List<? extends T> lst, Consumer<? super T> consumer) {
         BatchOperation.withEach(lst, consumer);
     }
 
     @SafeVarargs
-    public static <T> void doForEach(Consumer<T> action, T... doWithUs) {
+    public static <T> void doForEach(Consumer<? super T> action, T... doWithUs) {
         BatchOperation.doForEach(action, doWithUs);
     }
 
@@ -118,7 +118,7 @@ public final class Functions {
      * @return the supplier result
      * @see Functions#rethrowOnException(utils.functions.ThrowingRunnable)
      */
-    public static <T> T rethrowOnException(ThrowingSupplier<T> supplier) {
+    public static <T> T rethrowOnException(ThrowingSupplier<? extends T> supplier) {
         return TryCatch.rethrowOnException(supplier);
     }
 
@@ -136,7 +136,7 @@ public final class Functions {
      *
      * @return same function
      */
-    public static <T, R> ThrowingFunction<T, R> map(Function<T, R> map) {
+    public static <T, R> ThrowingFunction<T, R> mapFunction(Function<? super T, ? extends R> map) {
         return ThrowingFunction.wrap(map);
     }
 
@@ -145,15 +145,23 @@ public final class Functions {
      *
      * @return same consumer
      */
-    public static <T> ThrowingConsumer<T> mapConsumer(Consumer<T> consumer) {
+    public static <T> ThrowingConsumer<T> mapConsumer(Consumer<? super T> consumer) {
         return ThrowingConsumer.wrap(consumer);
     }
 
-    public static <T> T doIfThrowing(ThrowingSupplier<T> supplier, ThrowingPredicate<T> condition, ThrowingConsumer<T> job) {
+    public static <T> T doIfThrowing(
+            ThrowingSupplier<? extends T> supplier,
+            ThrowingPredicate<? super T> condition,
+            ThrowingConsumer<? super T> job
+    ) {
         return doIf(supplier, condition, job);
     }
 
-    public static <T> T doIf(Supplier<T> supplier, Predicate<T> condition, Consumer<T> job) {
+    public static <T> T doIf(
+            Supplier<? extends T> supplier,
+            Predicate<? super T> condition,
+            Consumer<? super T> job
+    ) {
         T operand = supplier.get();
 
         if (condition.test(operand)) {

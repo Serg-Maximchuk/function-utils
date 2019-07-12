@@ -3,3 +3,44 @@
 Dependency-free utility library born to reduce the code size and increase it's readability when dealing with lambdas, and some more! It will help you to write java code in more functional/imperative style.
 
 Throwing lambdas as a bonus!
+
+Coming soon:
+
+ThrowingBiFunction
+ThrowingBinaryOperator
+ThrowingBiPredicate
+ThrowingBooleanSupplier
+ThrowingDoubleBinaryOperator
+ThrowingDoubleConsumer
+ThrowingDoubleFunction
+ThrowingDoublePredicate
+ThrowingDoubleSupplier
+ThrowingDoubleToIntFunction
+ThrowingDoubleToLongFunction
+ThrowingDoubleUnaryOperator
+ThrowingIntBinaryOperator
+ThrowingIntConsumer
+ThrowingIntFunction
+ThrowingIntPredicate
+ThrowingIntSupplier
+ThrowingIntToDoubleFunction
+ThrowingIntToLongFunction
+ThrowingIntUnaryOperator
+ThrowingLongBinaryOperator
+ThrowingLongConsumer
+ThrowingLongFunction
+ThrowingLongPredicate
+ThrowingLongSupplier
+ThrowingLongToDoubleFunction
+ThrowingLongToIntFunction
+ThrowingLongUnaryOperator
+ThrowingObjDoubleConsumer
+ThrowingObjIntConsumer
+ThrowingObjLongConsumer
+ThrowingToDoubleBiFunction
+ThrowingToDoubleFunction
+ThrowingToIntBiFunction
+ThrowingToIntFunction
+ThrowingToLongBiFunction
+ThrowingToLongFunction
+ThrowingUnaryOperator

@@ -40,7 +40,7 @@ public final class Value {
      * @return the {@code value}
      * @see Value#withThrowing(java.lang.Object, utils.functions.ThrowingConsumer)
      */
-    public static <T> T with(T value, Consumer<T> consumer) {
+    public static <T> T with(T value, Consumer<? super T> consumer) {
         consumer.accept(value);
         return value;
     }
@@ -82,16 +82,16 @@ public final class Value {
      * @return the {@code value}
      * @see Value#with(java.lang.Object, java.util.function.Consumer)
      */
-    public static <T> T withThrowing(T value, ThrowingConsumer<T> consumer) {
+    public static <T> T withThrowing(T value, ThrowingConsumer<? super T> consumer) {
         consumer.accept(value);
         return value;
     }
 
-    public static <T, R> R map(T value, Function<T, R> map) {
+    public static <T, R> R map(T value, Function<? super T, ? extends R> map) {
         return map.apply(value);
     }
 
-    public static <T, R> R mapThrowing(T value, ThrowingFunction<T, R> map) {
+    public static <T, R> R mapThrowing(T value, ThrowingFunction<? super T, ? extends R> map) {
         return map.apply(value);
     }
 
