@@ -6,6 +6,9 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
+/**
+ * An aggregate class for MFU methods
+ */
 public final class Functions {
 
     /**
