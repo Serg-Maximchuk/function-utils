@@ -11,6 +11,16 @@ public interface ThrowingRunnable extends Runnable {
         return runnable::run;
     }
 
+    /**
+     * Use it when you don't want to cast lambda by yourself
+     *
+     * @param runnable runnable to map and return
+     * @return the same runnable
+     */
+    static ThrowingRunnable map(ThrowingRunnable runnable) {
+        return runnable;
+    }
+
 
     void runThrowing() throws Exception;
 

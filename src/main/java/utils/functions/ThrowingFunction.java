@@ -13,6 +13,16 @@ public interface ThrowingFunction<T, R> extends Function<T, R> {
         return wrapMe::apply;
     }
 
+    /**
+     * Use it when you don't want to cast lambda by yourself
+     *
+     * @param function the one to map and return
+     * @return the same function
+     */
+    static <T1, U1> ThrowingFunction<T1, U1> map(ThrowingFunction<T1, U1> function) {
+        return function;
+    }
+
 
     R applyThrowing(T t) throws Exception;
 

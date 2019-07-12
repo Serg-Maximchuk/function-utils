@@ -13,6 +13,16 @@ public interface ThrowingSupplier<T> extends Supplier<T> {
         return supplier::get;
     }
 
+    /**
+     * Use it when you don't want to cast lambda by yourself
+     *
+     * @param supplier the one to map and return
+     * @return the same supplier
+     */
+    static <T1> ThrowingSupplier<T1> map(ThrowingSupplier<T1> supplier) {
+        return supplier;
+    }
+
 
     T getThrowing() throws Exception;
 

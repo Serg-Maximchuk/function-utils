@@ -13,6 +13,16 @@ public interface ThrowingPredicate<T> extends Predicate<T> {
         return predicate::test;
     }
 
+    /**
+     * Use it when you don't want to cast lambda by yourself
+     *
+     * @param predicate the one to map and return
+     * @return the same predicate
+     */
+    static <T1> ThrowingPredicate<T1> map(ThrowingPredicate<T1> predicate) {
+        return predicate;
+    }
+
 
     boolean testThrowing(T t) throws Exception;
 

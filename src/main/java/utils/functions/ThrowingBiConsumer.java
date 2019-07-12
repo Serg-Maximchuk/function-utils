@@ -13,6 +13,16 @@ public interface ThrowingBiConsumer<T, U> extends BiConsumer<T, U> {
         return consumer::accept;
     }
 
+    /**
+     * Use it when you don't want to cast lambda by yourself
+     *
+     * @param consumer the one to map and return
+     * @return the same consumer
+     */
+    static <T1, U1> ThrowingBiConsumer<T1, U1> map(ThrowingBiConsumer<T1, U1> consumer) {
+        return consumer;
+    }
+
 
     void acceptThrows(T t, U u) throws Exception;
 

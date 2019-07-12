@@ -13,6 +13,16 @@ public interface ThrowingConsumer<T> extends Consumer<T> {
         return consumer::accept;
     }
 
+    /**
+     * Use it when you don't want to cast lambda by yourself
+     *
+     * @param consumer the one to map and return
+     * @return the same consumer
+     */
+    static <T1> ThrowingConsumer<T1> map(ThrowingConsumer<T1> consumer) {
+        return consumer;
+    }
+
 
     void acceptThrows(T t) throws Exception;
 
