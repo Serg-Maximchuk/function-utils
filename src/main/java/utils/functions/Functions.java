@@ -149,11 +149,11 @@ public final class Functions {
         return ThrowingConsumer.wrap(consumer);
     }
 
-    public <T> T doIfThrowing(ThrowingSupplier<T> supplier, ThrowingPredicate<T> condition, ThrowingConsumer<T> job) {
+    public static <T> T doIfThrowing(ThrowingSupplier<T> supplier, ThrowingPredicate<T> condition, ThrowingConsumer<T> job) {
         return doIf(supplier, condition, job);
     }
 
-    public <T> T doIf(Supplier<T> supplier, Predicate<T> condition, Consumer<T> job) {
+    public static <T> T doIf(Supplier<T> supplier, Predicate<T> condition, Consumer<T> job) {
         T operand = supplier.get();
 
         if (condition.test(operand)) {
