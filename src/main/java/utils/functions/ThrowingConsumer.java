@@ -29,4 +29,5 @@ public interface ThrowingConsumer<T> extends Consumer<T> {
     default Consumer<T> unthrow() {
         return this;
     }
+
 }

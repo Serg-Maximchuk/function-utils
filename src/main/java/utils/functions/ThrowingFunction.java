@@ -29,4 +29,5 @@ public interface ThrowingFunction<T, R> extends Function<T, R> {
     default Function<T, R> unthrow() {
         return this;
     }
+
 }
