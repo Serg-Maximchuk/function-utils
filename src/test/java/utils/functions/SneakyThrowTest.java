@@ -8,12 +8,9 @@ class SneakyThrowTest {
 
     @Test
     void sneakyThrow() {
-        class CheckedTestException extends Exception {
-        }
-
         assertThrows(
-                CheckedTestException.class,
-                () -> SneakyThrow.sneakyThrow(new CheckedTestException())
+                TestCheckedException.class,
+                () -> SneakyThrow.sneakyThrow(new TestCheckedException())
         );
     }
 }
