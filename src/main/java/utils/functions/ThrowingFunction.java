@@ -22,7 +22,7 @@ public interface ThrowingFunction<T, R> extends Function<T, R> {
         try {
             return applyThrowing(t);
         } catch (Exception e) {
-            throw Functions.sneakyThrow(e);
+            throw Functions.<RuntimeException>sneakyThrow(e);
         }
     }
 

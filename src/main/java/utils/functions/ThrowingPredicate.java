@@ -10,7 +10,7 @@ public interface ThrowingPredicate<T> extends Predicate<T> {
         try {
             return testThrowing(t);
         } catch (Exception e) {
-            throw Functions.sneakyThrow(e);
+            throw Functions.<RuntimeException>sneakyThrow(e);
         }
     }
 

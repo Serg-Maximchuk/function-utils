@@ -12,7 +12,7 @@ public final class TryCatch {
         try {
             return supplier.get();
         } catch (Exception e) {
-            throw Functions.sneakyThrow(e);
+            throw Functions.<RuntimeException>sneakyThrow(e);
         }
     }
 
@@ -25,7 +25,7 @@ public final class TryCatch {
         try {
             runnable.run();
         } catch (Exception e) {
-            throw Functions.sneakyThrow(e);
+            throw Functions.<RuntimeException>sneakyThrow(e);
         }
     }
 

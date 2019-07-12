@@ -10,7 +10,7 @@ public interface ThrowingRunnable extends Runnable {
         try {
             runThrowing();
         } catch (Exception e) {
-            Functions.sneakyThrow(e);
+            Functions.<RuntimeException>sneakyThrow(e);
         }
     }
 }

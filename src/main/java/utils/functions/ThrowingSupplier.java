@@ -10,7 +10,7 @@ public interface ThrowingSupplier<T> extends Supplier<T> {
         try {
             return getThrowing();
         } catch (Exception e) {
-            throw Functions.sneakyThrow(e);
+            throw Functions.<RuntimeException>sneakyThrow(e);
         }
     }
 

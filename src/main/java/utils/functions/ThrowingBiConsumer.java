@@ -12,7 +12,7 @@ public interface ThrowingBiConsumer<T, U> extends BiConsumer<T, U> {
         try {
             acceptThrows(t, u);
         } catch (Exception e) {
-            Functions.sneakyThrow(e);
+            Functions.<RuntimeException>sneakyThrow(e);
         }
     }
 }

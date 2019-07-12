@@ -22,7 +22,7 @@ public interface ThrowingConsumer<T> extends Consumer<T> {
         try {
             acceptThrows(t);
         } catch (Exception e) {
-            Functions.sneakyThrow(e);
+            Functions.<RuntimeException>sneakyThrow(e);
         }
     }
 
