@@ -168,7 +168,6 @@ https://github.com/jOOQ/jOOL
 ### Coming soon:
 
 ```
-ThrowingDoubleToIntFunction
 ThrowingDoubleToLongFunction
 ThrowingIntBinaryOperator
 ThrowingIntConsumer
