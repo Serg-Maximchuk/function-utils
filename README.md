@@ -168,14 +168,11 @@ https://github.com/jOOQ/jOOL
 ### Coming soon:
 
 ```
-ThrowingDoubleBinaryOperator
-ThrowingDoubleConsumer
 ThrowingDoubleFunction
 ThrowingDoublePredicate
 ThrowingDoubleSupplier
 ThrowingDoubleToIntFunction
 ThrowingDoubleToLongFunction
-ThrowingDoubleUnaryOperator
 ThrowingIntBinaryOperator
 ThrowingIntConsumer
 ThrowingIntFunction
