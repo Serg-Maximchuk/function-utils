@@ -6,7 +6,6 @@ Throwing lambdas as a bonus!
 
 Coming soon:
 
-ThrowingBiPredicate
 ThrowingBooleanSupplier
 ThrowingDoubleBinaryOperator
 ThrowingDoubleConsumer
