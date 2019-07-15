@@ -8,22 +8,22 @@ Java 11
 <dependency>
   <groupId>io.github.serg-maximchuk</groupId>
   <artifactId>function-utils</artifactId>
-  <version>1.0.3</version>
+  <version>1.0.4</version>
 </dependency>
 ```
 ```groovy
-compile group: 'io.github.serg-maximchuk', name: 'function-utils', version: '1.0.3'
+compile group: 'io.github.serg-maximchuk', name: 'function-utils', version: '1.0.4'
 ```
 Java 8 suport:
 ```xml
 <dependency>
   <groupId>io.github.serg-maximchuk</groupId>
   <artifactId>function-utils</artifactId>
-  <version>1.0.3-java8</version>
+  <version>1.0.4-java8</version>
 </dependency>
 ```
 ```groovy
-compile group: 'io.github.serg-maximchuk', name: 'function-utils', version: '1.0.3-java8'
+compile group: 'io.github.serg-maximchuk', name: 'function-utils', version: '1.0.4-java8'
 ```
 
 Dependency-free utility library born to reduce the code size and increase it's readability
@@ -154,6 +154,9 @@ ThrowingDoubleToIntFunction
 ThrowingDoubleToLongFunction
 ThrowingDoubleUnaryOperator
 ThrowingFunction
+ThrowingObjDoubleConsumer
+ThrowingObjIntConsumer
+ThrowingObjLongConsumer
 ThrowingPredicate
 ThrowingRunnable
 ThrowingSupplier
