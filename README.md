@@ -154,7 +154,7 @@ Throwing lambdas may be used as a stand-alone function whenever you want.
 
 ### Coming soon:
 
-In throwing lambas context: comparison why this library is better than others
+In throwing lambdas context: comparison why this library is better than others
 ```
 https://www.javadoc.io/doc/io.vavr/vavr/1.0.0-alpha-2
 https://github.com/pivovarit/throwing-function
