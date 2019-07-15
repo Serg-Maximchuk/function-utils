@@ -6,7 +6,6 @@ Throwing lambdas as a bonus!
 
 Coming soon:
 
-ThrowingBooleanSupplier
 ThrowingDoubleBinaryOperator
 ThrowingDoubleConsumer
 ThrowingDoubleFunction
