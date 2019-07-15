@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.function.Function;
 
 /**
- * Function that can throw checked {@code Exception}.
+ * {@code Function} that can throw checked {@code Exception}.
  * <p>
  * This is a functional interface whose functional method
  * is {@link #applyThrowing(Object)}.

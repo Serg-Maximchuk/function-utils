@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.function.Consumer;
 
 /**
- * Consumer that may sneaky throw checked {@code Exception}.
+ * {@code Consumer} that may sneaky throw checked {@code Exception}.
  * <p>
  * This is a functional interface whose functional method
  * is {@link #acceptThrows(Object)}.

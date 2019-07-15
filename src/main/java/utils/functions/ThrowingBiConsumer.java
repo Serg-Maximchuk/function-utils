@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.function.BiConsumer;
 
 /**
- * BiConsumer that may sneaky throw checked {@code Exception}.
+ * {@code BiConsumer} that may sneaky throw checked {@code Exception}.
  * <p>
  * This is a functional interface whose functional method
  * is {@link #acceptThrows(Object, Object)}.
@@ -26,7 +26,7 @@ public interface ThrowingBiConsumer<T, U> extends BiConsumer<T, U> {
      */
     @SuppressWarnings("unchecked")
     static <T1, U1> BiConsumer<T1, U1> unthrow(ThrowingBiConsumer<? super T1, ? super U1> consumer) {
-        return (ThrowingBiConsumer<T1, U1>) consumer;
+        return (BiConsumer<T1, U1>) consumer;
     }
 
     /**
