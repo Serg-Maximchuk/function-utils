@@ -2,6 +2,14 @@
 
 https://mvnrepository.com/artifact/io.github.serg-maximchuk/function-utils
 
+```xml
+<dependency>
+  <groupId>io.github.serg-maximchuk</groupId>
+  <artifactId>function-utils</artifactId>
+  <version>1.0.2</version>
+</dependency>
+```
+
 Dependency-free utility library born to reduce the code size and increase it's readability
 when dealing with lambdas, and some more! It will help you to write java code in more
 functional/imperative style.
