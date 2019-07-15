@@ -23,8 +23,9 @@ public interface ThrowingBiPredicate<T, U> extends BiPredicate<T, U> {
      * @param predicate the one to be unwrapped
      * @return unwrapped {@code BiPredicate}
      */
-    static <T1, U1> BiPredicate<T1, U1> unthrow(ThrowingBiPredicate<T1, U1> predicate) {
-        return predicate;
+    @SuppressWarnings("unchecked")
+    static <T1, U1> BiPredicate<T1, U1> unthrow(ThrowingBiPredicate<? super T1, ? super U1> predicate) {
+        return (BiPredicate<T1, U1>) predicate;
     }
 
     /**
@@ -34,7 +35,7 @@ public interface ThrowingBiPredicate<T, U> extends BiPredicate<T, U> {
      * @return wrapped {@code ThrowingBiPredicate}
      * @throws NullPointerException if {@code predicate} is null
      */
-    static <T1, U1> ThrowingBiPredicate<T1, U1> wrap(BiPredicate<T1, U1> predicate) {
+    static <T1, U1> ThrowingBiPredicate<T1, U1> wrap(BiPredicate<? super T1, ? super U1> predicate) {
         return Objects.requireNonNull(predicate)::test;
     }
 
@@ -44,8 +45,9 @@ public interface ThrowingBiPredicate<T, U> extends BiPredicate<T, U> {
      * @param predicate the one to map and return
      * @return the same predicate
      */
-    static <T1, U1> ThrowingBiPredicate<T1, U1> map(ThrowingBiPredicate<T1, U1> predicate) {
-        return predicate;
+    @SuppressWarnings("unchecked")
+    static <T1, U1> ThrowingBiPredicate<T1, U1> map(ThrowingBiPredicate<? super T1, ? super U1> predicate) {
+        return (ThrowingBiPredicate<T1, U1>) predicate;
     }
 
 
