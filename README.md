@@ -9,6 +9,9 @@ https://mvnrepository.com/artifact/io.github.serg-maximchuk/function-utils
   <version>1.0.2</version>
 </dependency>
 ```
+```groovy
+compile group: 'io.github.serg-maximchuk', name: 'function-utils', version: '1.0.1'
+```
 
 Dependency-free utility library born to reduce the code size and increase it's readability
 when dealing with lambdas, and some more! It will help you to write java code in more
