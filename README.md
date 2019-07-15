@@ -192,7 +192,6 @@ ThrowingLongSupplier
 ThrowingLongToDoubleFunction
 ThrowingLongToIntFunction
 ThrowingLongUnaryOperator
-ThrowingObjDoubleConsumer
 ThrowingObjIntConsumer
 ThrowingObjLongConsumer
 ThrowingToDoubleBiFunction
