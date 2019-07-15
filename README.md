@@ -10,7 +10,7 @@ Throwing lambdas as a bonus!
 
 Feel free to create a PR.
 
-#Value::with
+# Value::with
 The main function, it will help you to write java code in more functional/imperative style.
 
 How many times you've been writing code like these pieces:
@@ -110,7 +110,7 @@ return repo.save(user);
 Just don't forget to call `repo::save` method **outside** of a `Value::with`,
 I believe you understand why.
 
-#Bonus: Throwing lambdas
+# Bonus: Throwing lambdas
 Not only in the `Value::with` context, sometimes action in a lambda may throw some checked
 exceptions. Throwing lambdas to the rescue:
 
@@ -141,7 +141,7 @@ Throwing lambdas may be used as a stand-alone function whenever you want.
 
 #
 
-###Coming soon:
+### Coming soon:
 
 In throwing lambas context: comparison why this library is better than others
 ```
@@ -154,7 +154,7 @@ https://github.com/jOOQ/jOOL
 ```
 
 
-###Coming soon:
+### Coming soon:
 
 ```
 ThrowingDoubleBinaryOperator
