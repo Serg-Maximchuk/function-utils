@@ -7,23 +7,24 @@ import java.util.function.Function;
 /**
  * {@code BiFunction} that may sneaky throw checked {@code Exception}.
  *
- * <p>This is a <a href="package-summary.html">functional interface</a>
- * whose functional method is {@link #apply(Object, Object)}.
+ * This is a functional interface whose functional method
+ * is {@link #applyThrows(Object, Object)}.
  *
  * @param <T> the type of the first argument to the function
  * @param <U> the type of the second argument to the function
  * @param <R> the type of the result of the function
- * @see Function
- * @since 1.8
+ *
+ * @see ThrowingFunction
+ * @see BiFunction
  */
 @FunctionalInterface
 public interface ThrowingBiFunction<T, U, R> extends BiFunction<T, U, R> {
 
     /**
-     * Unwrap {@code ThrowingBiConsumer}.
+     * Unwrap {@code ThrowingBiFunction}.
      *
      * @param function the one to be unwrapped
-     * @return unwrapped {@code BiConsumer}
+     * @return unwrapped {@code ThrowingBiFunction}
      */
     @SuppressWarnings("unchecked")
     static <T1, U1, R1> BiFunction<T1, U1, R1> unthrow(
@@ -36,7 +37,7 @@ public interface ThrowingBiFunction<T, U, R> extends BiFunction<T, U, R> {
      * Wrap input {@code function} as a throwing one.
      *
      * @param function the one to be wrapped
-     * @return wrapped {@code ThrowingBiConsumer}
+     * @return wrapped {@code ThrowingBiFunction}
      * @throws NullPointerException if {@code function} is null
      */
     static <T1, U1, R1> ThrowingBiFunction<T1, U1, R1> wrap(
@@ -79,14 +80,14 @@ public interface ThrowingBiFunction<T, U, R> extends BiFunction<T, U, R> {
     }
 
     /**
-     * Returns a composed {@code ThrowingBiConsumer} that performs, in sequence, this
+     * Returns a composed {@code ThrowingBiFunction} that performs, in sequence, this
      * operation followed by the {@code after} operation. If performing either
      * operation throws an exception, it is relayed to the caller of the
      * composed operation.  If performing this operation throws an exception,
      * the {@code after} operation will not be performed.
      *
      * @param after the operation to perform after this operation
-     * @return a composed {@code ThrowingBiConsumer} that performs in sequence this
+     * @return a composed {@code ThrowingBiFunction} that performs in sequence this
      * operation followed by the {@code after} operation
      * @throws NullPointerException if {@code after} is null
      */
@@ -114,9 +115,9 @@ public interface ThrowingBiFunction<T, U, R> extends BiFunction<T, U, R> {
     }
 
     /**
-     * Unwrap this {@code ThrowingBiConsumer}.
+     * Unwrap this {@code ThrowingBiFunction}.
      *
-     * @return this unwrapped {@code BiConsumer}
+     * @return this unwrapped {@code BiFunction}
      */
     default BiFunction<T, U, R> unthrow() {
         return this;

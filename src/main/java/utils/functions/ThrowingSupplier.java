@@ -7,7 +7,7 @@ import java.util.function.Supplier;
  * {@code Supplier} that can throw checked {@code Exception}
  *
  * <p>This is a functional interface whose functional method
- * is {@link #get()}.
+ * is {@link #getThrowing()}.
  *
  * @param <T> the type of results supplied by this supplier
  * @see Supplier
