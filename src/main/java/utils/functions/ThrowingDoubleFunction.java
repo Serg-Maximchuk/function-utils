@@ -16,7 +16,6 @@ import java.util.function.DoubleFunction;
 @FunctionalInterface
 public interface ThrowingDoubleFunction<R> extends DoubleFunction<R> {
 
-
     /**
      * Unwrap {@link ThrowingDoubleFunction}.
      *
@@ -50,6 +49,7 @@ public interface ThrowingDoubleFunction<R> extends DoubleFunction<R> {
         return (ThrowingDoubleFunction<T1>) function;
     }
 
+
     /**
      * Applies this function to the given argument.
      *
@@ -57,6 +57,7 @@ public interface ThrowingDoubleFunction<R> extends DoubleFunction<R> {
      * @return the function result
      */
     R applyThrows(double value) throws Exception;
+
 
     @Override
     default R apply(double value) {
