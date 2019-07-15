@@ -10,7 +10,7 @@ https://mvnrepository.com/artifact/io.github.serg-maximchuk/function-utils
 </dependency>
 ```
 ```groovy
-compile group: 'io.github.serg-maximchuk', name: 'function-utils', version: '1.0.1'
+compile group: 'io.github.serg-maximchuk', name: 'function-utils', version: '1.0.2'
 ```
 
 Dependency-free utility library born to reduce the code size and increase it's readability
