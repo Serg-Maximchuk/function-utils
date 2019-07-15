@@ -168,8 +168,6 @@ https://github.com/jOOQ/jOOL
 ### Coming soon:
 
 ```
-ThrowingDoubleFunction
-ThrowingDoublePredicate
 ThrowingDoubleSupplier
 ThrowingDoubleToIntFunction
 ThrowingDoubleToLongFunction
