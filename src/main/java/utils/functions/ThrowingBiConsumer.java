@@ -83,7 +83,7 @@ public interface ThrowingBiConsumer<T, U> extends BiConsumer<T, U> {
      * operation followed by the {@code after} operation
      * @throws NullPointerException if {@code after} is null
      */
-    default ThrowingBiConsumer<T, U> andThenThrowing(ThrowingBiConsumer<? super T, ? super U> after) {
+    default ThrowingBiConsumer<T, U> throwingAndThen(ThrowingBiConsumer<? super T, ? super U> after) {
         return andThen(after);
     }
 
@@ -122,7 +122,7 @@ public interface ThrowingBiConsumer<T, U> extends BiConsumer<T, U> {
      * @throws NullPointerException if {@code before} is null
      */
     @SuppressWarnings("unchecked")
-    default ThrowingBiConsumer<T, U> composeThrowing(ThrowingBiConsumer<? super T, ? super U> before) {
+    default ThrowingBiConsumer<T, U> throwingCompose(ThrowingBiConsumer<? super T, ? super U> before) {
         return Objects.requireNonNull((ThrowingBiConsumer<T, U>) before).andThen(this);
     }
 
@@ -140,7 +140,7 @@ public interface ThrowingBiConsumer<T, U> extends BiConsumer<T, U> {
      */
     @SuppressWarnings("unchecked")
     default ThrowingBiConsumer<T, U> compose(BiConsumer<? super T, ? super U> before) {
-        return wrap((ThrowingBiConsumer<T, U>) before).andThen(this);
+        return wrap((BiConsumer<T, U>) before).andThen(this);
     }
 
     /**

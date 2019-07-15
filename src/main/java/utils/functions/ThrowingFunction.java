@@ -84,9 +84,9 @@ public interface ThrowingFunction<T, R> extends Function<T, R> {
      * @throws NullPointerException if before is null
      * @see #compose(Function)
      * @see #andThen(Function)
-     * @see #andThenThrowing(ThrowingFunction)
+     * @see #throwingAndThen(ThrowingFunction)
      */
-    default <V> ThrowingFunction<V, R> composeThrowing(ThrowingFunction<? super V, ? extends T> before) {
+    default <V> ThrowingFunction<V, R> throwingCompose(ThrowingFunction<? super V, ? extends T> before) {
         return compose(before);
     }
 
@@ -102,9 +102,9 @@ public interface ThrowingFunction<T, R> extends Function<T, R> {
      * @return a composed function that first applies the {@code before}
      * function and then applies this function
      * @throws NullPointerException if before is null
-     * @see #composeThrowing(ThrowingFunction)
+     * @see #throwingCompose(ThrowingFunction)
      * @see #andThen(Function)
-     * @see #andThenThrowing(ThrowingFunction)
+     * @see #throwingAndThen(ThrowingFunction)
      */
     @Override
     default <V> ThrowingFunction<V, R> compose(Function<? super V, ? extends T> before) {
@@ -125,10 +125,10 @@ public interface ThrowingFunction<T, R> extends Function<T, R> {
      * applies the {@code after} function
      * @throws NullPointerException if after is null
      * @see #compose(Function)
-     * @see #composeThrowing(ThrowingFunction)
+     * @see #throwingCompose(ThrowingFunction)
      * @see #andThen(Function)
      */
-    default <V> ThrowingFunction<T, V> andThenThrowing(ThrowingFunction<? super R, ? extends V> after) {
+    default <V> ThrowingFunction<T, V> throwingAndThen(ThrowingFunction<? super R, ? extends V> after) {
         return andThen(after);
     }
 
@@ -145,8 +145,8 @@ public interface ThrowingFunction<T, R> extends Function<T, R> {
      * applies the {@code after} function
      * @throws NullPointerException if after is null
      * @see #compose(Function)
-     * @see #composeThrowing(ThrowingFunction)
-     * @see #andThenThrowing(ThrowingFunction)
+     * @see #throwingCompose(ThrowingFunction)
+     * @see #throwingAndThen(ThrowingFunction)
      */
     @Override
     default <V> ThrowingFunction<T, V> andThen(Function<? super R, ? extends V> after) {

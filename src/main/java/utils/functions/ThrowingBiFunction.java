@@ -91,7 +91,7 @@ public interface ThrowingBiFunction<T, U, R> extends BiFunction<T, U, R> {
      * operation followed by the {@code after} operation
      * @throws NullPointerException if {@code after} is null
      */
-    default <V> ThrowingBiFunction<T, U, V> andThenThrowing(ThrowingFunction<? super R, ? extends V> after) {
+    default <V> ThrowingBiFunction<T, U, V> throwingAndThen(ThrowingFunction<? super R, ? extends V> after) {
         return andThen(after);
     }
 

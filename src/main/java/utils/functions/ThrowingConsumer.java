@@ -103,7 +103,7 @@ public interface ThrowingConsumer<T> extends Consumer<T> {
      * operation followed by the {@code after} operation
      * @throws NullPointerException if {@code after} is null
      */
-    default ThrowingConsumer<T> andThenThrowing(ThrowingConsumer<? super T> after) {
+    default ThrowingConsumer<T> throwingAndThen(ThrowingConsumer<? super T> after) {
         return andThen(after);
     }
 
@@ -137,7 +137,7 @@ public interface ThrowingConsumer<T> extends Consumer<T> {
      * @throws NullPointerException if {@code before} is null
      */
     @SuppressWarnings("unchecked")
-    default ThrowingConsumer<T> composeThrowing(ThrowingConsumer<? super T> before) {
+    default ThrowingConsumer<T> throwingCompose(ThrowingConsumer<? super T> before) {
         return Objects.requireNonNull((ThrowingConsumer<T>) before).andThen(this);
     }
 

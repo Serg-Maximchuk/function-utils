@@ -143,7 +143,7 @@ public interface ThrowingBiPredicate<T, U> extends BiPredicate<T, U> {
      * AND of this predicate and the {@code other} predicate
      * @throws NullPointerException if other is null
      */
-    default ThrowingBiPredicate<T, U> andThrowing(ThrowingBiPredicate<? super T, ? super U> other) {
+    default ThrowingBiPredicate<T, U> throwingAnd(ThrowingBiPredicate<? super T, ? super U> other) {
         return and(other);
     }
 
@@ -163,7 +163,7 @@ public interface ThrowingBiPredicate<T, U> extends BiPredicate<T, U> {
      * OR of this predicate and the {@code other} predicate
      * @throws NullPointerException if other is null
      */
-    default ThrowingBiPredicate<T, U> orThrowing(ThrowingBiPredicate<? super T, ? super U> other) {
+    default ThrowingBiPredicate<T, U> throwingOr(ThrowingBiPredicate<? super T, ? super U> other) {
         return or(other);
     }
 
