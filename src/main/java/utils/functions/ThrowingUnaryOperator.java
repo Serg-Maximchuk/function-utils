@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.function.UnaryOperator;
 
 /**
- * {@code UnaryOperator} that may sneaky throw checked exception.
+ * {@link UnaryOperator} that may sneaky throw checked exception.
  * <p>
  * This is a functional interface whose functional method
  * is {@link #applyThrowing(Object)}.
@@ -18,10 +18,10 @@ import java.util.function.UnaryOperator;
 public interface ThrowingUnaryOperator<T> extends UnaryOperator<T>, ThrowingFunction<T, T> {
 
     /**
-     * Unwrap {@code ThrowingBinaryOperator}.
+     * Unwrap {@code ThrowingUnaryOperator}.
      *
      * @param operator the one to be unwrapped
-     * @return unwrapped {@code BinaryOperator}
+     * @return unwrapped {@code UnaryOperator}
      */
     static <T1> UnaryOperator<T1> unthrow(ThrowingUnaryOperator<T1> operator) {
         return operator;
@@ -31,7 +31,7 @@ public interface ThrowingUnaryOperator<T> extends UnaryOperator<T>, ThrowingFunc
      * Wrap input {@code operator} as a throwing one.
      *
      * @param operator the one to be wrapped
-     * @return wrapped {@code ThrowingBinaryOperator}
+     * @return wrapped {@code ThrowingUnaryOperator}
      * @throws NullPointerException if {@code operator} is null
      */
     static <T1> ThrowingUnaryOperator<T1> wrap(UnaryOperator<T1> operator) {
@@ -83,6 +83,7 @@ public interface ThrowingUnaryOperator<T> extends UnaryOperator<T>, ThrowingFunc
      *
      * @return this unwrapped {@code UnaryOperator}
      */
+    @Override
     default UnaryOperator<T> unthrow() {
         return this;
     }
