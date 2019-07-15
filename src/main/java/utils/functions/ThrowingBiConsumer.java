@@ -66,7 +66,7 @@ public interface ThrowingBiConsumer<T, U> extends BiConsumer<T, U> {
     default void accept(T t, U u) {
         try {
             acceptThrows(t, u);
-        } catch (Exception e) {
+        } catch (Exception e) {//noinspection RedundantTypeArguments
             Functions.<RuntimeException>sneakyThrow(e);
         }
     }

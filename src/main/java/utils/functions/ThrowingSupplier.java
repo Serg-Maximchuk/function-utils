@@ -61,7 +61,7 @@ public interface ThrowingSupplier<T> extends Supplier<T> {
     default T get() {
         try {
             return getThrowing();
-        } catch (Exception e) {
+        } catch (Exception e) {//noinspection RedundantTypeArguments
             throw Functions.<RuntimeException>sneakyThrow(e);
         }
     }

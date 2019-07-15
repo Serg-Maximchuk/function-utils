@@ -95,7 +95,7 @@ public interface ThrowingPredicate<T> extends Predicate<T> {
     default boolean test(T t) {
         try {
             return testThrowing(t);
-        } catch (Exception e) {
+        } catch (Exception e) {//noinspection RedundantTypeArguments
             throw Functions.<RuntimeException>sneakyThrow(e);
         }
     }

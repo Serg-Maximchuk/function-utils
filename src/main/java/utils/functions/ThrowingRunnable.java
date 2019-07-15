@@ -55,7 +55,7 @@ public interface ThrowingRunnable extends Runnable {
     default void run() {
         try {
             runThrowing();
-        } catch (Exception e) {
+        } catch (Exception e) {//noinspection RedundantTypeArguments
             Functions.<RuntimeException>sneakyThrow(e);
         }
     }

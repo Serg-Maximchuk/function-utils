@@ -65,7 +65,7 @@ public interface ThrowingFunction<T, R> extends Function<T, R> {
     default R apply(T t) {
         try {
             return applyThrowing(t);
-        } catch (Exception e) {
+        } catch (Exception e) {//noinspection RedundantTypeArguments
             throw Functions.<RuntimeException>sneakyThrow(e);
         }
     }

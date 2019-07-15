@@ -64,7 +64,7 @@ public interface ThrowingConsumer<T> extends Consumer<T> {
     default void accept(T t) {
         try {
             acceptThrows(t);
-        } catch (Exception e) {
+        } catch (Exception e) {//noinspection RedundantTypeArguments
             Functions.<RuntimeException>sneakyThrow(e);
         }
     }

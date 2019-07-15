@@ -11,7 +11,7 @@ public final class TryCatch {
     public static <T> T rethrowOnException(ThrowingSupplier<? extends T> supplier) {
         try {
             return supplier.get();
-        } catch (Exception e) {
+        } catch (Exception e) {//noinspection RedundantTypeArguments
             throw Functions.<RuntimeException>sneakyThrow(e);
         }
     }
@@ -24,7 +24,7 @@ public final class TryCatch {
     public static void rethrowOnException(ThrowingRunnable runnable) {
         try {
             runnable.run();
-        } catch (Exception e) {
+        } catch (Exception e) {//noinspection RedundantTypeArguments
             throw Functions.<RuntimeException>sneakyThrow(e);
         }
     }
