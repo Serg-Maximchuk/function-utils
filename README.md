@@ -132,6 +132,14 @@ ThrowingBinaryOperator
 ThrowingBiPredicate
 ThrowingBooleanSupplier
 ThrowingConsumer
+ThrowingDoubleBinaryOperator
+ThrowingDoubleConsumer
+ThrowingDoubleFunction
+ThrowingDoublePredicate
+ThrowingDoubleSupplier
+ThrowingDoubleToIntFunction
+ThrowingDoubleToLongFunction
+ThrowingDoubleUnaryOperator
 ThrowingFunction
 ThrowingPredicate
 ThrowingRunnable
