@@ -10,7 +10,7 @@ Throwing lambdas as a bonus!
 
 Feel free to create a PR.
 
-#Value#with
+#Value::with
 The main function, it will help you to write java code in more functional/imperative style.
 
 How many times you've been writing code like these pieces:
@@ -65,7 +65,7 @@ Meet the `Value` class and it's function `with`!
 
 Main actors:
    - `T value`, an operand of generic type, which will be returned in the end;
-   - void `action` or `Consumer<T>`, whose the only argument would be the `value`.
+   - void `Consumer<T> action` whose the only argument would be the `value`.
 
 Take a look how it can reduce the code (`with` method is statically imported):
 
