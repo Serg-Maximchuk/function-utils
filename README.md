@@ -2,6 +2,8 @@
 
 https://mvnrepository.com/artifact/io.github.serg-maximchuk/function-utils
 
+Java 11
+
 ```xml
 <dependency>
   <groupId>io.github.serg-maximchuk</groupId>
