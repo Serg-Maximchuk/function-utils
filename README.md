@@ -6,7 +6,6 @@ Throwing lambdas as a bonus!
 
 Coming soon:
 
-ThrowingBiFunction
 ThrowingBinaryOperator
 ThrowingBiPredicate
 ThrowingBooleanSupplier
