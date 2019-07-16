@@ -8,22 +8,22 @@ Java 11
 <dependency>
   <groupId>io.github.serg-maximchuk</groupId>
   <artifactId>function-utils</artifactId>
-  <version>1.1.0</version>
+  <version>1.1.1</version>
 </dependency>
 ```
 ```groovy
-compile group: 'io.github.serg-maximchuk', name: 'function-utils', version: '1.1.0'
+compile group: 'io.github.serg-maximchuk', name: 'function-utils', version: '1.1.1'
 ```
 Java 8 suport:
 ```xml
 <dependency>
   <groupId>io.github.serg-maximchuk</groupId>
   <artifactId>function-utils</artifactId>
-  <version>1.1.0-java8</version>
+  <version>1.1.1-java8</version>
 </dependency>
 ```
 ```groovy
-compile group: 'io.github.serg-maximchuk', name: 'function-utils', version: '1.1.0-java8'
+compile group: 'io.github.serg-maximchuk', name: 'function-utils', version: '1.1.1-java8'
 ```
 
 Dependency-free utility library born to reduce the code size and increase it's readability
@@ -71,18 +71,18 @@ return t;
 Or:
 ```
 T t = new T();
-$outer.f(t);
+outer.f(t);
 return t;
 ```
 
 Into this:
 ```
 return with(new T(), t -> t.f());
-return with(new T(), t -> $outer.f(t));
+return with(new T(), t -> outer.f(t));
 
 // which also can be simplified
 return with(new T(), T::f);
-return with(new T(), $outer::f);
+return with(new T(), outer::f);
 ```
 
 Meet the `Value` class and it's function `with`!
@@ -118,7 +118,7 @@ return some;
 such case:
 ```
 T t = new T();
-return $outer.f(t);
+return outer.f(t);
 ```
 Which may be something like this in real life:
 ```
@@ -187,11 +187,11 @@ ThrowingUnaryOperator
 You can't compile such a thing without wrapping it into `try/catch` or using
 `sneakyThrow` approach:
 ```
-Value.with(t, t -> $outer.thisMethodThrows(t));
+Value.with(t, t -> outer.thisMethodThrows(t));
 ```
 But you may use built-in method with throwing lambda:
 ```
-Value.withThrowing(t, t -> $outer.thisMethodThrows(t));
+Value.withThrowing(t, t -> outer.thisMethodThrows(t));
 ```
 
 Throwing lambdas may be used as a stand-alone function whenever you want.

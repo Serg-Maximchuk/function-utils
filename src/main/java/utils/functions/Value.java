@@ -1,5 +1,6 @@
 package utils.functions;
 
+import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
@@ -38,10 +39,11 @@ public final class Value {
      * @param value    a value to be applied to {@code consumer}
      * @param consumer will accept a {@code value}
      * @return the {@code value}
+     * @throws NullPointerException if {@code consumer} is null
      * @see Value#withThrowing(java.lang.Object, utils.functions.ThrowingConsumer)
      */
     public static <T> T with(T value, Consumer<? super T> consumer) {
-        consumer.accept(value);
+        Objects.requireNonNull(consumer).accept(value);
         return value;
     }
 
@@ -80,11 +82,19 @@ public final class Value {
      * @param value    a value to be applied to {@code consumer}
      * @param consumer will accept a {@code value}
      * @return the {@code value}
+     * @throws NullPointerException if {@code consumer} is null
      * @see Value#with(java.lang.Object, java.util.function.Consumer)
      */
     public static <T> T withThrowing(T value, ThrowingConsumer<? super T> consumer) {
-        consumer.accept(value);
-        return value;
+        return with(value, consumer);
+    }
+
+    public static <T> ThrowingUnaryOperator<T> apply(Consumer<? super T> action) {
+        return x -> with(x, action);
+    }
+
+    public static <T> ThrowingUnaryOperator<T> applyThrowing(ThrowingConsumer<? super T> action) {
+        return apply(action);
     }
 
     public static <T, R> R map(T value, Function<? super T, ? extends R> map) {
@@ -94,6 +104,5 @@ public final class Value {
     public static <T, R> R mapThrowing(T value, ThrowingFunction<? super T, ? extends R> map) {
         return map.apply(value);
     }
-
 
 }

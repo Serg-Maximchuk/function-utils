@@ -91,6 +91,14 @@ public final class Functions {
         return Value.withThrowing(value, consumer);
     }
 
+    public static <T> ThrowingUnaryOperator<T> apply(Consumer<? super T> action) {
+        return Value.apply(action);
+    }
+
+    public static <T> ThrowingUnaryOperator<T> applyThrowing(ThrowingConsumer<? super T> action) {
+        return Value.applyThrowing(action);
+    }
+
     public static <T, R> R map(T value, Function<? super T, ? extends R> function) {
         return Value.map(value, function);
     }
