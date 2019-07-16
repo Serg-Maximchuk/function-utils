@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.function.DoubleFunction;
 
 /**
- * {@link DoubleFunction} that may sneaky throw checked {@code Exception}.
+ * {@link DoubleFunction} that may sneaky throw checked {@link Exception}.
  * <p>
  * This is a functional interface whose functional method
  * is {@link #applyThrows(double)}.
@@ -51,7 +51,8 @@ public interface ThrowingDoubleFunction<R> extends DoubleFunction<R> {
 
 
     /**
-     * Applies this function to the given argument.
+     * Applies this function to the given argument,
+     * may throw checked {@link Exception}.
      *
      * @param value the function argument
      * @return the function result

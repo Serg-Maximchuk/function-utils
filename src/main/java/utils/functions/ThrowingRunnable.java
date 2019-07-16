@@ -3,7 +3,7 @@ package utils.functions;
 import java.util.Objects;
 
 /**
- * {@code Runnable} that may throw checked {@code Exception}.
+ * {@link Runnable} that may throw checked {@link Exception}.
  *
  * <p>This is a functional interface whose functional method
  * is {@link #runThrowing()}.
@@ -14,10 +14,10 @@ import java.util.Objects;
 public interface ThrowingRunnable extends Runnable {
 
     /**
-     * Unwrap {@code ThrowingRunnable}.
+     * Unwrap {@link ThrowingRunnable}.
      *
      * @param runnable the one to be unwrapped
-     * @return unwrapped {@code Runnable}
+     * @return unwrapped {@link Runnable}
      */
     static Runnable unthrow(ThrowingRunnable runnable) {
         return runnable;
@@ -27,7 +27,7 @@ public interface ThrowingRunnable extends Runnable {
      * Wrap input {@code runnable} as a throwing one.
      *
      * @param runnable the one to be wrapped
-     * @return wrapped {@code ThrowingRunnable}
+     * @return wrapped {@link ThrowingRunnable}
      * @throws NullPointerException if {@code runnable} is null
      */
     static ThrowingRunnable wrap(Runnable runnable) {
@@ -46,7 +46,7 @@ public interface ThrowingRunnable extends Runnable {
 
 
     /**
-     * The main action, may throw checked {@code Exception}
+     * The main action, may throw checked {@link Exception}.
      */
     void runThrowing() throws Exception;
 
@@ -61,9 +61,9 @@ public interface ThrowingRunnable extends Runnable {
     }
 
     /**
-     * Unwrap this {@code ThrowingRunnable}.
+     * Unwrap this {@link ThrowingRunnable}.
      *
-     * @return this unwrapped {@code Runnable}
+     * @return this unwrapped {@link Runnable}
      */
     default Runnable unthrow() {
         return this;

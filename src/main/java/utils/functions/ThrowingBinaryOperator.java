@@ -5,7 +5,7 @@ import java.util.Objects;
 import java.util.function.BinaryOperator;
 
 /**
- * {@link BinaryOperator} that may sneaky throw checked exception.
+ * {@link BinaryOperator} that may sneaky throw checked {@link Exception}.
  * <p>
  * This is a functional interface whose functional method
  * is {@link #applyThrows(Object, Object)}.
@@ -19,10 +19,10 @@ import java.util.function.BinaryOperator;
 public interface ThrowingBinaryOperator<T> extends BinaryOperator<T>, ThrowingBiFunction<T, T, T> {
 
     /**
-     * Unwrap {@code ThrowingBinaryOperator}.
+     * Unwrap {@link ThrowingBinaryOperator}.
      *
      * @param operator the one to be unwrapped
-     * @return unwrapped {@code BinaryOperator}
+     * @return unwrapped {@link BinaryOperator}
      */
     static <T1> BinaryOperator<T1> unthrow(ThrowingBinaryOperator<T1> operator) {
         return operator;
@@ -32,7 +32,7 @@ public interface ThrowingBinaryOperator<T> extends BinaryOperator<T>, ThrowingBi
      * Wrap input {@code operator} as a throwing one.
      *
      * @param operator the one to be wrapped
-     * @return wrapped {@code ThrowingBinaryOperator}
+     * @return wrapped {@link ThrowingBinaryOperator}
      * @throws NullPointerException if {@code operator} is null
      */
     static <T1> ThrowingBinaryOperator<T1> wrap(BinaryOperator<T1> operator) {
@@ -51,12 +51,12 @@ public interface ThrowingBinaryOperator<T> extends BinaryOperator<T>, ThrowingBi
 
     /**
      * Returns a {@link ThrowingBinaryOperator} which returns the lesser of two elements
-     * according to the specified {@code Comparator}.
+     * according to the specified {@link Comparator}.
      *
      * @param <T>        the type of the input arguments of the comparator
-     * @param comparator a {@code Comparator} for comparing the two values
-     * @return a {@code BinaryOperator} which returns the lesser of its operands,
-     * according to the supplied {@code Comparator}
+     * @param comparator a {@link Comparator} for comparing the two values
+     * @return a {@link ThrowingBinaryOperator} which returns the lesser of its operands,
+     * according to the supplied {@link Comparator}
      * @throws NullPointerException if the argument is null
      */
     static <T> ThrowingBinaryOperator<T> minBy(Comparator<? super T> comparator) {
@@ -66,12 +66,12 @@ public interface ThrowingBinaryOperator<T> extends BinaryOperator<T>, ThrowingBi
 
     /**
      * Returns a {@link ThrowingBinaryOperator} which returns the greater of two elements
-     * according to the specified {@code Comparator}.
+     * according to the specified {@link Comparator}.
      *
      * @param <T>        the type of the input arguments of the comparator
-     * @param comparator a {@code Comparator} for comparing the two values
-     * @return a {@code BinaryOperator} which returns the greater of its operands,
-     * according to the supplied {@code Comparator}
+     * @param comparator a {@link Comparator} for comparing the two values
+     * @return a {@link ThrowingBinaryOperator} which returns the greater of its operands,
+     * according to the supplied {@link Comparator}
      * @throws NullPointerException if the argument is null
      */
     static <T> ThrowingBinaryOperator<T> maxBy(Comparator<? super T> comparator) {
@@ -81,7 +81,8 @@ public interface ThrowingBinaryOperator<T> extends BinaryOperator<T>, ThrowingBi
 
 
     /**
-     * Applies this function to the given arguments.
+     * Applies this function to the given arguments,
+     * may throw checked {@link Exception}.
      *
      * @param t1 the first function argument
      * @param t2 the second function argument
@@ -101,9 +102,9 @@ public interface ThrowingBinaryOperator<T> extends BinaryOperator<T>, ThrowingBi
     }
 
     /**
-     * Unwrap this {@code ThrowingBinaryOperator}.
+     * Unwrap this {@link ThrowingBinaryOperator}.
      *
-     * @return this unwrapped {@code BinaryOperator}
+     * @return this unwrapped {@link BinaryOperator}
      */
     default BinaryOperator<T> unthrow() {
         return this;

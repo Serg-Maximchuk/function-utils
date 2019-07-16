@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.function.ObjLongConsumer;
 
 /**
- * {@link ObjLongConsumer} that may sneaky throw checked {@code Exception}.
+ * {@link ObjLongConsumer} that may sneaky throw checked {@link Exception}.
  * <p>
  * This is a functional interface whose functional method
  * is {@link #acceptThrows(Object, long)}.
@@ -53,7 +53,7 @@ public interface ThrowingObjLongConsumer<T> extends ObjLongConsumer<T> {
 
     /**
      * Performs this operation on the given arguments,
-     * may throw checked {@code Exception}.
+     * may throw checked {@link Exception}.
      *
      * @param t     the first input argument
      * @param value the second input argument

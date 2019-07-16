@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.function.DoubleBinaryOperator;
 
 /**
- * {@link DoubleBinaryOperator} that may sneaky throw checked exception.
+ * {@link DoubleBinaryOperator} that may sneaky throw checked {@link Exception}.
  * <p>
  * This is a functional interface whose functional method
  * is {@link #applyAsDoubleThrows(double, double)}.
@@ -16,10 +16,10 @@ import java.util.function.DoubleBinaryOperator;
 public interface ThrowingDoubleBinaryOperator extends DoubleBinaryOperator {
 
     /**
-     * Unwrap {@code ThrowingDoubleBinaryOperator}.
+     * Unwrap {@link ThrowingDoubleBinaryOperator}.
      *
      * @param operator the one to be unwrapped
-     * @return unwrapped {@code DoubleBinaryOperator}
+     * @return unwrapped {@link DoubleBinaryOperator}
      */
     static DoubleBinaryOperator unthrow(ThrowingDoubleBinaryOperator operator) {
         return operator;
@@ -29,7 +29,7 @@ public interface ThrowingDoubleBinaryOperator extends DoubleBinaryOperator {
      * Wrap input {@code operator} as a throwing one.
      *
      * @param operator the one to be wrapped
-     * @return wrapped {@code ThrowingDoubleBinaryOperator}
+     * @return wrapped {@link ThrowingDoubleBinaryOperator}
      * @throws NullPointerException if {@code operator} is null
      */
     static ThrowingDoubleBinaryOperator wrap(DoubleBinaryOperator operator) {
@@ -48,7 +48,8 @@ public interface ThrowingDoubleBinaryOperator extends DoubleBinaryOperator {
 
 
     /**
-     * Applies this operator to the given operands.
+     * Applies this operator to the given operands,
+     * may throw checked {@link Exception}.
      *
      * @param left  the first operand
      * @param right the second operand
@@ -67,9 +68,9 @@ public interface ThrowingDoubleBinaryOperator extends DoubleBinaryOperator {
     }
 
     /**
-     * Unwrap this {@code ThrowingDoubleBinaryOperator}.
+     * Unwrap this {@link ThrowingDoubleBinaryOperator}.
      *
-     * @return this unwrapped {@code DoubleBinaryOperator}
+     * @return this unwrapped {@link DoubleBinaryOperator}
      */
     default DoubleBinaryOperator unthrow() {
         return this;

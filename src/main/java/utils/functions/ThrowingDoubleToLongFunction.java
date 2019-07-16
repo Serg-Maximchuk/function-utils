@@ -5,7 +5,7 @@ import java.util.function.DoubleToIntFunction;
 import java.util.function.DoubleToLongFunction;
 
 /**
- * {@link DoubleToLongFunction} that may sneaky throw checked {@code Exception}.
+ * {@link DoubleToLongFunction} that may sneaky throw checked {@link Exception}.
  * <p>
  * This is a functional interface whose functional method
  * is {@link #applyAsLongThrows(double)}.
@@ -50,7 +50,7 @@ public interface ThrowingDoubleToLongFunction extends DoubleToLongFunction {
 
     /**
      * Applies this function to the given argument,
-     * may throw checked {@code Exception}.
+     * may throw checked {@link Exception}.
      *
      * @param value the function argument
      * @return the function result

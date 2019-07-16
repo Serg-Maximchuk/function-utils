@@ -5,7 +5,7 @@ import java.util.function.DoublePredicate;
 import java.util.function.DoubleSupplier;
 
 /**
- * {@link DoubleSupplier} that may sneaky throw checked {@code Exception}.
+ * {@link DoubleSupplier} that may sneaky throw checked {@link Exception}.
  * <p>
  * This is a functional interface whose functional method
  * is {@link #getAsDoubleThrows()}.
@@ -49,7 +49,7 @@ public interface ThrowingDoubleSupplier extends DoubleSupplier {
 
 
     /**
-     * Gets a result, may throw checked {@code Exception}.
+     * Gets a result, may throw checked {@link Exception}.
      *
      * @return a result
      */

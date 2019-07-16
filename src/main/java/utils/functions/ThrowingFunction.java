@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.function.Function;
 
 /**
- * {@code Function} that can throw checked {@code Exception}.
+ * {@link Function} that can throw checked {@link Exception}.
  * <p>
  * This is a functional interface whose functional method
  * is {@link #applyThrowing(Object)}.
@@ -17,10 +17,10 @@ import java.util.function.Function;
 public interface ThrowingFunction<T, R> extends Function<T, R> {
 
     /**
-     * Unwrap {@code ThrowingFunction}.
+     * Unwrap {@link ThrowingFunction}.
      *
      * @param function the one to be unwrapped
-     * @return unwrapped {@code Function}
+     * @return unwrapped {@link Function}
      */
     @SuppressWarnings("unchecked")
     static <T1, R1> Function<T1, R1> unthrow(ThrowingFunction<? super T1, ? extends R1> function) {
@@ -31,7 +31,7 @@ public interface ThrowingFunction<T, R> extends Function<T, R> {
      * Wrap input {@code function} as a throwing one.
      *
      * @param function the one to be wrapped
-     * @return wrapped {@code ThrowingFunction}
+     * @return wrapped {@link ThrowingFunction}
      * @throws NullPointerException if {@code function} is null
      */
     @SuppressWarnings("unchecked")
@@ -53,7 +53,7 @@ public interface ThrowingFunction<T, R> extends Function<T, R> {
 
     /**
      * Applies this function to the given argument,
-     * may throw checked {@code Exception}.
+     * may throw checked {@link Exception}.
      *
      * @param t the function argument
      * @return the function result
@@ -155,9 +155,9 @@ public interface ThrowingFunction<T, R> extends Function<T, R> {
     }
 
     /**
-     * Unwrap this {@code ThrowingFunction}.
+     * Unwrap this {@link ThrowingFunction}.
      *
-     * @return this unwrapped {@code Function}
+     * @return this unwrapped {@link Function}
      */
     default Function<T, R> unthrow() {
         return this;

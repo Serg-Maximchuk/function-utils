@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.function.Supplier;
 
 /**
- * {@code Supplier} that can throw checked {@code Exception}
+ * {@link Supplier} that can throw checked {@link Exception}.
  *
  * <p>This is a functional interface whose functional method
  * is {@link #getThrowing()}.
@@ -16,10 +16,10 @@ import java.util.function.Supplier;
 public interface ThrowingSupplier<T> extends Supplier<T> {
 
     /**
-     * Unwrap {@code ThrowingSupplier}.
+     * Unwrap {@link ThrowingSupplier}.
      *
      * @param supplier the one to be unwrapped
-     * @return unwrapped {@code Supplier}
+     * @return unwrapped {@link Supplier}
      */
     @SuppressWarnings("unchecked")
     static <T1> Supplier<T1> unthrow(ThrowingSupplier<? extends T1> supplier) {
@@ -30,7 +30,7 @@ public interface ThrowingSupplier<T> extends Supplier<T> {
      * Wrap input {@code supplier} as a throwing one.
      *
      * @param supplier the one to be wrapped
-     * @return wrapped {@code ThrowingSupplier}
+     * @return wrapped {@link ThrowingSupplier}
      * @throws NullPointerException if {@code supplier} is null
      */
     static <T1> ThrowingSupplier<T1> wrap(Supplier<? extends T1> supplier) {
@@ -50,7 +50,7 @@ public interface ThrowingSupplier<T> extends Supplier<T> {
 
 
     /**
-     * Gets a result, may throw checked {@code Exception}.
+     * Gets a result, may throw checked {@link Exception}.
      *
      * @return a result
      */
@@ -67,9 +67,9 @@ public interface ThrowingSupplier<T> extends Supplier<T> {
     }
 
     /**
-     * Unwrap this {@code ThrowingSupplier}.
+     * Unwrap this {@link ThrowingSupplier}.
      *
-     * @return this unwrapped {@code Supplier}
+     * @return this unwrapped {@link Supplier}
      */
     default Supplier<T> unthrow() {
         return this;

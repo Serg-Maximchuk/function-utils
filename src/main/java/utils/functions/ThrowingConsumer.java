@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.function.Consumer;
 
 /**
- * {@code Consumer} that may sneaky throw checked {@code Exception}.
+ * {@link Consumer} that may sneaky throw checked {@link Exception}.
  * <p>
  * This is a functional interface whose functional method
  * is {@link #acceptThrows(Object)}.
@@ -18,10 +18,10 @@ import java.util.function.Consumer;
 public interface ThrowingConsumer<T> extends Consumer<T> {
 
     /**
-     * Unwrap {@code ThrowingConsumer}.
+     * Unwrap {@link ThrowingConsumer}.
      *
      * @param consumer the one to be unwrapped
-     * @return unwrapped {@code Consumer}
+     * @return unwrapped {@link Consumer}
      */
     @SuppressWarnings("unchecked")
     static <T1> Consumer<T1> unthrow(ThrowingConsumer<? super T1> consumer) {
@@ -32,7 +32,7 @@ public interface ThrowingConsumer<T> extends Consumer<T> {
      * Wrap input {@code consumer} as a throwing one.
      *
      * @param consumer the one to be wrapped
-     * @return wrapped {@code ThrowingConsumer}
+     * @return wrapped {@link ThrowingConsumer}
      * @throws NullPointerException if {@code consumer} is null
      */
     static <T1> ThrowingConsumer<T1> wrap(Consumer<? super T1> consumer) {
@@ -53,7 +53,7 @@ public interface ThrowingConsumer<T> extends Consumer<T> {
 
     /**
      * Performs this operation on the given argument,
-     * may throw checked {@code Exception}.
+     * may throw checked {@link Exception}.
      *
      * @param t the input argument
      */
@@ -70,14 +70,14 @@ public interface ThrowingConsumer<T> extends Consumer<T> {
     }
 
     /**
-     * Returns a composed {@code ThrowingConsumer} that performs, in sequence, this
+     * Returns a composed {@link ThrowingConsumer} that performs, in sequence, this
      * operation followed by the {@code after} operation. If performing either
      * operation throws an exception, it is relayed to the caller of the
      * composed operation.  If performing this operation throws an exception,
      * the {@code after} operation will not be performed.
      *
      * @param after the operation to perform after this operation
-     * @return a composed {@code ThrowingConsumer} that performs in sequence this
+     * @return a composed {@link ThrowingConsumer} that performs in sequence this
      * operation followed by the {@code after} operation
      * @throws NullPointerException if {@code after} is null
      */
@@ -92,14 +92,14 @@ public interface ThrowingConsumer<T> extends Consumer<T> {
     }
 
     /**
-     * Returns a composed {@code ThrowingConsumer} that performs, in sequence, this
+     * Returns a composed {@link ThrowingConsumer} that performs, in sequence, this
      * operation followed by the {@code after} operation. If performing either
      * operation throws an exception, it is relayed to the caller of the
      * composed operation.  If performing this operation throws an exception,
      * the {@code after} operation will not be performed.
      *
      * @param after the operation to perform after this operation
-     * @return a composed {@code ThrowingConsumer} that performs in sequence this
+     * @return a composed {@link ThrowingConsumer} that performs in sequence this
      * operation followed by the {@code after} operation
      * @throws NullPointerException if {@code after} is null
      */
@@ -108,14 +108,14 @@ public interface ThrowingConsumer<T> extends Consumer<T> {
     }
 
     /**
-     * Returns a composed {@code ThrowingConsumer} that performs, in sequence, this
+     * Returns a composed {@link ThrowingConsumer} that performs, in sequence, this
      * operation followed by the {@code before} operation. If performing either
      * operation throws an exception, it is relayed to the caller of the
      * composed operation.  If performing this operation throws an exception,
      * the {@code before} operation will not be performed.
      *
      * @param before the operation to perform before this operation
-     * @return a composed {@code ThrowingConsumer} that performs in sequence this
+     * @return a composed {@link ThrowingConsumer} that performs in sequence this
      * operation followed by the {@code before} operation
      * @throws NullPointerException if {@code before} is null
      */
@@ -125,14 +125,14 @@ public interface ThrowingConsumer<T> extends Consumer<T> {
     }
 
     /**
-     * Returns a composed {@code ThrowingConsumer} that performs, in sequence, this
+     * Returns a composed {@link ThrowingConsumer} that performs, in sequence, this
      * operation followed by the {@code before} operation. If performing either
      * operation throws an exception, it is relayed to the caller of the
      * composed operation.  If performing this operation throws an exception,
      * the {@code before} operation will not be performed.
      *
      * @param before the operation to perform before this operation
-     * @return a composed {@code ThrowingConsumer} that performs in sequence this
+     * @return a composed {@link ThrowingConsumer} that performs in sequence this
      * operation followed by the {@code before} operation
      * @throws NullPointerException if {@code before} is null
      */
@@ -142,9 +142,9 @@ public interface ThrowingConsumer<T> extends Consumer<T> {
     }
 
     /**
-     * Unwrap this {@code ThrowingConsumer}.
+     * Unwrap this {@link ThrowingConsumer}.
      *
-     * @return this unwrapped {@code Consumer}
+     * @return this unwrapped {@link Consumer}
      */
     default Consumer<T> unthrow() {
         return this;

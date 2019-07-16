@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.function.DoubleConsumer;
 
 /**
- * {@code DoubleConsumer} that may sneaky throw checked {@code Exception}.
+ * {@link DoubleConsumer} that may sneaky throw checked {@link Exception}.
  * <p>
  * This is a functional interface whose functional method
  * is {@link #acceptThrows(double)}.
@@ -16,10 +16,10 @@ import java.util.function.DoubleConsumer;
 public interface ThrowingDoubleConsumer extends DoubleConsumer {
 
     /**
-     * Unwrap {@code ThrowingDoubleConsumer}.
+     * Unwrap {@link ThrowingDoubleConsumer}.
      *
      * @param consumer the one to be unwrapped
-     * @return unwrapped {@code DoubleConsumer}
+     * @return unwrapped {@link DoubleConsumer}
      */
     static DoubleConsumer unthrow(ThrowingDoubleConsumer consumer) {
         return consumer;
@@ -29,7 +29,7 @@ public interface ThrowingDoubleConsumer extends DoubleConsumer {
      * Wrap input {@code consumer} as a throwing one.
      *
      * @param consumer the one to be wrapped
-     * @return wrapped {@code ThrowingDoubleConsumer}
+     * @return wrapped {@link ThrowingDoubleConsumer}
      * @throws NullPointerException if {@code consumer} is null
      */
     static ThrowingDoubleConsumer wrap(DoubleConsumer consumer) {
@@ -48,7 +48,8 @@ public interface ThrowingDoubleConsumer extends DoubleConsumer {
 
 
     /**
-     * Performs this operation on the given argument.
+     * Performs this operation on the given argument,
+     * may throw checked {@link Exception}.
      *
      * @param value the input argument
      */
@@ -65,14 +66,14 @@ public interface ThrowingDoubleConsumer extends DoubleConsumer {
     }
 
     /**
-     * Returns a composed {@code DoubleConsumer} that performs, in sequence, this
+     * Returns a composed {@link DoubleConsumer} that performs, in sequence, this
      * operation followed by the {@code after} operation. If performing either
      * operation throws an exception, it is relayed to the caller of the
      * composed operation.  If performing this operation throws an exception,
      * the {@code after} operation will not be performed.
      *
      * @param after the operation to perform after this operation
-     * @return a composed {@code DoubleConsumer} that performs in sequence this
+     * @return a composed {@link DoubleConsumer} that performs in sequence this
      * operation followed by the {@code after} operation
      * @throws NullPointerException if {@code after} is null
      */
@@ -86,14 +87,14 @@ public interface ThrowingDoubleConsumer extends DoubleConsumer {
     }
 
     /**
-     * Returns a composed {@code ThrowingDoubleConsumer} that performs, in sequence, this
+     * Returns a composed {@link ThrowingDoubleConsumer} that performs, in sequence, this
      * operation followed by the {@code after} operation. If performing either
      * operation throws an exception, it is relayed to the caller of the
      * composed operation.  If performing this operation throws an exception,
      * the {@code after} operation will not be performed.
      *
      * @param after the operation to perform after this operation
-     * @return a composed {@code ThrowingDoubleConsumer} that performs in sequence this
+     * @return a composed {@link ThrowingDoubleConsumer} that performs in sequence this
      * operation followed by the {@code after} operation
      * @throws NullPointerException if {@code after} is null
      */
@@ -102,9 +103,9 @@ public interface ThrowingDoubleConsumer extends DoubleConsumer {
     }
 
     /**
-     * Unwrap this {@code ThrowingDoubleConsumer}.
+     * Unwrap this {@link ThrowingDoubleConsumer}.
      *
-     * @return this unwrapped {@code DoubleConsumer}
+     * @return this unwrapped {@link DoubleConsumer}
      */
     default DoubleConsumer unthrow() {
         return this;

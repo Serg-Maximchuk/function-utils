@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.function.DoublePredicate;
 
 /**
- * {@link DoublePredicate} that may sneaky throw checked {@code Exception}.
+ * {@link DoublePredicate} that may sneaky throw checked {@link Exception}.
  * <p>
  * This is a functional interface whose functional method
  * is {@link #testThrows(double)}.
@@ -49,7 +49,7 @@ public interface ThrowingDoublePredicate extends DoublePredicate {
 
     /**
      * Evaluates this predicate on the given argument, may throw
-     * checked {@code Exception}.
+     * checked {@link Exception}.
      *
      * @param value the input argument
      * @return {@code true} if the input argument matches the predicate,

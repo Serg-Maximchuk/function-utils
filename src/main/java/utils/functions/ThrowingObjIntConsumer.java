@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.function.ObjIntConsumer;
 
 /**
- * {@link ObjIntConsumer} that may sneaky throw checked {@code Exception}.
+ * {@link ObjIntConsumer} that may sneaky throw checked {@link Exception}.
  * <p>
  * This is a functional interface whose functional method
  * is {@link #acceptThrows(Object, int)}.
@@ -53,7 +53,7 @@ public interface ThrowingObjIntConsumer<T> extends ObjIntConsumer<T> {
 
     /**
      * Performs this operation on the given arguments,
-     * may throw checked {@code Exception}.
+     * may throw checked {@link Exception}.
      *
      * @param t     the first input argument
      * @param value the second input argument

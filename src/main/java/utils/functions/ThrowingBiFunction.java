@@ -5,7 +5,7 @@ import java.util.function.BiFunction;
 import java.util.function.Function;
 
 /**
- * {@code BiFunction} that may sneaky throw checked {@code Exception}.
+ * {@link BiFunction} that may sneaky throw checked {@link Exception}.
  *
  * This is a functional interface whose functional method
  * is {@link #applyThrows(Object, Object)}.
@@ -21,10 +21,10 @@ import java.util.function.Function;
 public interface ThrowingBiFunction<T, U, R> extends BiFunction<T, U, R> {
 
     /**
-     * Unwrap {@code ThrowingBiFunction}.
+     * Unwrap {@link ThrowingBiFunction}.
      *
      * @param function the one to be unwrapped
-     * @return unwrapped {@code ThrowingBiFunction}
+     * @return unwrapped {@link ThrowingBiFunction}
      */
     @SuppressWarnings("unchecked")
     static <T1, U1, R1> BiFunction<T1, U1, R1> unthrow(
@@ -37,7 +37,7 @@ public interface ThrowingBiFunction<T, U, R> extends BiFunction<T, U, R> {
      * Wrap input {@code function} as a throwing one.
      *
      * @param function the one to be wrapped
-     * @return wrapped {@code ThrowingBiFunction}
+     * @return wrapped {@link ThrowingBiFunction}
      * @throws NullPointerException if {@code function} is null
      */
     static <T1, U1, R1> ThrowingBiFunction<T1, U1, R1> wrap(
@@ -61,7 +61,8 @@ public interface ThrowingBiFunction<T, U, R> extends BiFunction<T, U, R> {
 
 
     /**
-     * Applies this function to the given arguments.
+     * Applies this function to the given arguments,
+     * may throw checked {@link Exception}.
      *
      * @param t the first function argument
      * @param u the second function argument
@@ -80,14 +81,14 @@ public interface ThrowingBiFunction<T, U, R> extends BiFunction<T, U, R> {
     }
 
     /**
-     * Returns a composed {@code ThrowingBiFunction} that performs, in sequence, this
+     * Returns a composed {@link ThrowingBiFunction} that performs, in sequence, this
      * operation followed by the {@code after} operation. If performing either
      * operation throws an exception, it is relayed to the caller of the
      * composed operation.  If performing this operation throws an exception,
      * the {@code after} operation will not be performed.
      *
      * @param after the operation to perform after this operation
-     * @return a composed {@code ThrowingBiFunction} that performs in sequence this
+     * @return a composed {@link ThrowingBiFunction} that performs in sequence this
      * operation followed by the {@code after} operation
      * @throws NullPointerException if {@code after} is null
      */
@@ -115,9 +116,9 @@ public interface ThrowingBiFunction<T, U, R> extends BiFunction<T, U, R> {
     }
 
     /**
-     * Unwrap this {@code ThrowingBiFunction}.
+     * Unwrap this {@link ThrowingBiFunction}.
      *
-     * @return this unwrapped {@code BiFunction}
+     * @return this unwrapped {@link BiFunction}
      */
     default BiFunction<T, U, R> unthrow() {
         return this;

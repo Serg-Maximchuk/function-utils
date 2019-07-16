@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.function.DoubleUnaryOperator;
 
 /**
- * {@link DoubleUnaryOperator} that may sneaky throw checked exception.
+ * {@link DoubleUnaryOperator} that may sneaky throw checked {@link Exception}.
  * <p>
  * This is a functional interface whose functional method
  * is {@link #applyAsDoubleThrows(double)}.
@@ -16,10 +16,10 @@ import java.util.function.DoubleUnaryOperator;
 public interface ThrowingDoubleUnaryOperator extends DoubleUnaryOperator {
 
     /**
-     * Unwrap {@code ThrowingDoubleUnaryOperator}.
+     * Unwrap {@link ThrowingDoubleUnaryOperator}.
      *
      * @param operator the one to be unwrapped
-     * @return unwrapped {@code DoubleUnaryOperator}
+     * @return unwrapped {@link DoubleUnaryOperator}
      */
     static DoubleUnaryOperator unthrow(ThrowingDoubleUnaryOperator operator) {
         return operator;
@@ -29,7 +29,7 @@ public interface ThrowingDoubleUnaryOperator extends DoubleUnaryOperator {
      * Wrap input {@code operator} as a throwing one.
      *
      * @param operator the one to be wrapped
-     * @return wrapped {@code ThrowingDoubleUnaryOperator}
+     * @return wrapped {@link ThrowingDoubleUnaryOperator}
      * @throws NullPointerException if {@code operator} is null
      */
     static ThrowingDoubleUnaryOperator wrap(DoubleUnaryOperator operator) {
@@ -57,7 +57,8 @@ public interface ThrowingDoubleUnaryOperator extends DoubleUnaryOperator {
 
 
     /**
-     * Applies this operator to the given operand.
+     * Applies this operator to the given operand,
+     * may throw checked {@link Exception}.
      *
      * @param operand the operand
      * @return the operator result
@@ -151,9 +152,9 @@ public interface ThrowingDoubleUnaryOperator extends DoubleUnaryOperator {
     }
 
     /**
-     * Unwrap this {@code ThrowingDoubleUnaryOperator}.
+     * Unwrap this {@link ThrowingDoubleUnaryOperator}.
      *
-     * @return this unwrapped {@code DoubleUnaryOperator}
+     * @return this unwrapped {@link DoubleUnaryOperator}
      */
     default DoubleUnaryOperator unthrow() {
         return this;

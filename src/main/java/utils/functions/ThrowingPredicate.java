@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.function.Predicate;
 
 /**
- * {@code Predicate} that may throw checked {@code Exception}.
+ * {@link Predicate} that may throw checked {@link Exception}.
  *
  * <p>This is a functional interface whose functional method
  * is {@link #testThrowing(Object)}.
@@ -16,10 +16,10 @@ import java.util.function.Predicate;
 public interface ThrowingPredicate<T> extends Predicate<T> {
 
     /**
-     * Unwrap {@code ThrowingPredicate}.
+     * Unwrap {@link ThrowingPredicate}.
      *
      * @param predicate the one to be unwrapped
-     * @return unwrapped {@code Predicate}
+     * @return unwrapped {@link Predicate}
      */
     @SuppressWarnings("unchecked")
     static <T1> Predicate<T1> unthrow(ThrowingPredicate<? super T1> predicate) {
@@ -30,7 +30,7 @@ public interface ThrowingPredicate<T> extends Predicate<T> {
      * Wrap input {@code predicate} as a throwing one.
      *
      * @param predicate the one to be wrapped
-     * @return wrapped {@code ThrowingPredicate}
+     * @return wrapped {@link ThrowingPredicate}
      * @throws NullPointerException if {@code predicate} is null
      */
     static <T1> ThrowingPredicate<T1> wrap(Predicate<? super T1> predicate) {
@@ -82,7 +82,7 @@ public interface ThrowingPredicate<T> extends Predicate<T> {
 
     /**
      * Evaluates this predicate on the given argument,
-     * may throw checked {@code Exception}.
+     * may throw checked {@link Exception}.
      *
      * @param t the input argument
      * @return {@code true} if the input argument matches the predicate,
@@ -101,9 +101,9 @@ public interface ThrowingPredicate<T> extends Predicate<T> {
     }
 
     /**
-     * Unwrap this {@code ThrowingPredicate}.
+     * Unwrap this {@link ThrowingPredicate}.
      *
-     * @return this unwrapped {@code Predicate}
+     * @return this unwrapped {@link Predicate}
      */
     default Predicate<T> unthrow() {
         return this;

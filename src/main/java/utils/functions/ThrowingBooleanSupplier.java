@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.function.BooleanSupplier;
 
 /**
- * {@link BooleanSupplier} that may sneaky throw checked exception.
+ * {@link BooleanSupplier} that may sneaky throw checked {@link Exception}.
  * <p>
  * This is a functional interface whose functional method
  * is {@link #getAsBooleanThrowing()}.
@@ -48,7 +48,7 @@ public interface ThrowingBooleanSupplier extends BooleanSupplier {
 
 
     /**
-     * Gets a result.
+     * Gets a result, may throw checked {@link Exception}.
      *
      * @return a result
      */

@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.function.DoubleToIntFunction;
 
 /**
- * {@link DoubleToIntFunction} that may sneaky throw checked {@code Exception}.
+ * {@link DoubleToIntFunction} that may sneaky throw checked {@link Exception}.
  * <p>
  * This is a functional interface whose functional method
  * is {@link #applyAsIntThrows(double)}.
@@ -48,7 +48,8 @@ public interface ThrowingDoubleToIntFunction extends DoubleToIntFunction {
 
 
     /**
-     * Applies this function to the given argument.
+     * Applies this function to the given argument,
+     * may throw checked {@link Exception}.
      *
      * @param value the function argument
      * @return the function result

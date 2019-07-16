@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.function.BiPredicate;
 
 /**
- * {@link BiPredicate} that may sneaky throw checked exception.
+ * {@link BiPredicate} that may sneaky throw checked {@link Exception}.
  * <p>
  * This is a functional interface whose functional method
  * is {@link #testThrowing(Object, Object)}.
@@ -18,10 +18,10 @@ import java.util.function.BiPredicate;
 public interface ThrowingBiPredicate<T, U> extends BiPredicate<T, U> {
 
     /**
-     * Unwrap {@code ThrowingBiPredicate}.
+     * Unwrap {@link ThrowingBiPredicate}.
      *
      * @param predicate the one to be unwrapped
-     * @return unwrapped {@code BiPredicate}
+     * @return unwrapped {@link BiPredicate}
      */
     @SuppressWarnings("unchecked")
     static <T1, U1> BiPredicate<T1, U1> unthrow(ThrowingBiPredicate<? super T1, ? super U1> predicate) {
@@ -32,7 +32,7 @@ public interface ThrowingBiPredicate<T, U> extends BiPredicate<T, U> {
      * Wrap input {@code predicate} as a throwing one.
      *
      * @param predicate the one to be wrapped
-     * @return wrapped {@code ThrowingBiPredicate}
+     * @return wrapped {@link ThrowingBiPredicate}
      * @throws NullPointerException if {@code predicate} is null
      */
     static <T1, U1> ThrowingBiPredicate<T1, U1> wrap(BiPredicate<? super T1, ? super U1> predicate) {
@@ -52,7 +52,8 @@ public interface ThrowingBiPredicate<T, U> extends BiPredicate<T, U> {
 
 
     /**
-     * Evaluates this predicate on the given arguments.
+     * Evaluates this predicate on the given arguments,
+     * may throw checked {@link Exception}.
      *
      * @param t the first input argument
      * @param u the second input argument
@@ -168,9 +169,9 @@ public interface ThrowingBiPredicate<T, U> extends BiPredicate<T, U> {
     }
 
     /**
-     * Unwrap this {@code ThrowingBiPredicate}.
+     * Unwrap this {@link ThrowingBiPredicate}.
      *
-     * @return this unwrapped {@code BiPredicate}
+     * @return this unwrapped {@link BiPredicate}
      */
     default BiPredicate<T, U> unthrow() {
         return this;

@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.function.UnaryOperator;
 
 /**
- * {@link UnaryOperator} that may sneaky throw checked exception.
+ * {@link UnaryOperator} that may sneaky throw checked {@link Exception}.
  * <p>
  * This is a functional interface whose functional method
  * is {@link #applyThrowing(Object)}.
@@ -18,10 +18,10 @@ import java.util.function.UnaryOperator;
 public interface ThrowingUnaryOperator<T> extends UnaryOperator<T>, ThrowingFunction<T, T> {
 
     /**
-     * Unwrap {@code ThrowingUnaryOperator}.
+     * Unwrap {@link ThrowingUnaryOperator}.
      *
      * @param operator the one to be unwrapped
-     * @return unwrapped {@code UnaryOperator}
+     * @return unwrapped {@link UnaryOperator}
      */
     static <T1> UnaryOperator<T1> unthrow(ThrowingUnaryOperator<T1> operator) {
         return operator;
@@ -31,7 +31,7 @@ public interface ThrowingUnaryOperator<T> extends UnaryOperator<T>, ThrowingFunc
      * Wrap input {@code operator} as a throwing one.
      *
      * @param operator the one to be wrapped
-     * @return wrapped {@code ThrowingUnaryOperator}
+     * @return wrapped {@link ThrowingUnaryOperator}
      * @throws NullPointerException if {@code operator} is null
      */
     static <T1> ThrowingUnaryOperator<T1> wrap(UnaryOperator<T1> operator) {
@@ -61,7 +61,7 @@ public interface ThrowingUnaryOperator<T> extends UnaryOperator<T>, ThrowingFunc
 
     /**
      * Applies this function to the given argument,
-     * may throw checked {@code Exception}.
+     * may throw checked {@link Exception}.
      *
      * @param t the function argument
      * @return the function result
@@ -79,9 +79,9 @@ public interface ThrowingUnaryOperator<T> extends UnaryOperator<T>, ThrowingFunc
     }
 
     /**
-     * Unwrap this {@code ThrowingUnaryOperator}.
+     * Unwrap this {@link ThrowingUnaryOperator}.
      *
-     * @return this unwrapped {@code UnaryOperator}
+     * @return this unwrapped {@link UnaryOperator}
      */
     @Override
     default UnaryOperator<T> unthrow() {
