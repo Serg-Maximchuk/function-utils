@@ -8,22 +8,22 @@ Java 11
 <dependency>
   <groupId>io.github.serg-maximchuk</groupId>
   <artifactId>function-utils</artifactId>
-  <version>1.0.4</version>
+  <version>1.1.0</version>
 </dependency>
 ```
 ```groovy
-compile group: 'io.github.serg-maximchuk', name: 'function-utils', version: '1.0.4'
+compile group: 'io.github.serg-maximchuk', name: 'function-utils', version: '1.1.0'
 ```
 Java 8 suport:
 ```xml
 <dependency>
   <groupId>io.github.serg-maximchuk</groupId>
   <artifactId>function-utils</artifactId>
-  <version>1.0.4-java8</version>
+  <version>1.1.0-java8</version>
 </dependency>
 ```
 ```groovy
-compile group: 'io.github.serg-maximchuk', name: 'function-utils', version: '1.0.4-java8'
+compile group: 'io.github.serg-maximchuk', name: 'function-utils', version: '1.1.0-java8'
 ```
 
 Dependency-free utility library born to reduce the code size and increase it's readability
@@ -154,12 +154,34 @@ ThrowingDoubleToIntFunction
 ThrowingDoubleToLongFunction
 ThrowingDoubleUnaryOperator
 ThrowingFunction
+ThrowingIntBinaryOperator
+ThrowingIntConsumer
+ThrowingIntFunction
+ThrowingIntPredicate
+ThrowingIntSupplier
+ThrowingIntToDoubleFunction
+ThrowingIntToLongFunction
+ThrowingIntUnaryOperator
+ThrowingLongBinaryOperator
+ThrowingLongConsumer
+ThrowingLongFunction
+ThrowingLongPredicate
+ThrowingLongSupplier
+ThrowingLongToDoubleFunction
+ThrowingLongToIntFunction
+ThrowingLongUnaryOperator
 ThrowingObjDoubleConsumer
 ThrowingObjIntConsumer
 ThrowingObjLongConsumer
 ThrowingPredicate
 ThrowingRunnable
 ThrowingSupplier
+ThrowingToDoubleBiFunction
+ThrowingToDoubleFunction
+ThrowingToIntBiFunction
+ThrowingToIntFunction
+ThrowingToLongBiFunction
+ThrowingToLongFunction
 ThrowingUnaryOperator
 ```
 You can't compile such a thing without wrapping it into `try/catch` or using
@@ -186,32 +208,4 @@ https://github.com/SeregaLBN/StreamUnthrower
 https://github.com/fge/throwing-lambdas
 https://github.com/mscharhag/ET
 https://github.com/jOOQ/jOOL
-```
-
-
-### Coming soon:
-
-```
-ThrowingIntBinaryOperator
-ThrowingIntConsumer
-ThrowingIntFunction
-ThrowingIntPredicate
-ThrowingIntSupplier
-ThrowingIntToDoubleFunction
-ThrowingIntToLongFunction
-ThrowingIntUnaryOperator
-ThrowingLongBinaryOperator
-ThrowingLongConsumer
-ThrowingLongFunction
-ThrowingLongPredicate
-ThrowingLongSupplier
-ThrowingLongToDoubleFunction
-ThrowingLongToIntFunction
-ThrowingLongUnaryOperator
-ThrowingToDoubleBiFunction
-ThrowingToDoubleFunction
-ThrowingToIntBiFunction
-ThrowingToIntFunction
-ThrowingToLongBiFunction
-ThrowingToLongFunction
 ```
