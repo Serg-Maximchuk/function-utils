@@ -94,7 +94,7 @@ Main actors:
 Take a look how it can reduce the code (`with` method is statically imported):
 
 ```
-return with(new HttpHeaders(), headers -> headers.add(AUTHORIZATION, "Basic ...");
+return with(new HttpHeaders(), headers -> headers.add(AUTHORIZATION, "Basic ..."));
 ```
 
 ```
