@@ -1,8 +1,8 @@
 package utils.functions;
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
 
 class TryCatchTest {
 
@@ -40,5 +40,26 @@ class TryCatchTest {
         assertDoesNotThrow(() -> TryCatch.rethrowOnException(ThrowingRunnable.map(() -> stringBuilder.append(STR_2))));
 
         assertEquals(EXPECTED, stringBuilder.toString());
+    }
+
+    @Test
+    void tryCatch_When_RunnableThrows() {
+        TestCheckedException testCheckedException = new TestCheckedException();
+
+        TryCatch.tryCatch(() -> {
+                    throw testCheckedException;
+                },
+                e -> assertEquals(testCheckedException, e)
+        );
+    }
+
+    @Test
+    void tryCatch_When_RunnableDoesNotThrow() {
+        assertDoesNotThrow(() -> TryCatch.tryCatch(() -> {
+                },
+                e -> {
+                    throw new RuntimeException(e);
+                }
+        ));
     }
 }

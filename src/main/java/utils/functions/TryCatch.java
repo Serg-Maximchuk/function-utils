@@ -1,5 +1,7 @@
 package utils.functions;
 
+import java.util.function.Consumer;
+
 public final class TryCatch {
 
     /**
@@ -26,6 +28,17 @@ public final class TryCatch {
             runnable.run();
         } catch (Exception e) {//noinspection RedundantTypeArguments
             throw Functions.<RuntimeException>sneakyThrow(e);
+        }
+    }
+
+    /**
+     * Just functional replacement for common void try/catch block
+     */
+    public static void tryCatch(ThrowingRunnable runnable, Consumer<Exception> onException) {
+        try {
+            runnable.run();
+        } catch (Exception e) {
+            onException.accept(e);
         }
     }
 
