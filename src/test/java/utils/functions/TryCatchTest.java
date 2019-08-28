@@ -46,7 +46,8 @@ class TryCatchTest {
     void tryCatch_When_RunnableThrows() {
         TestCheckedException testCheckedException = new TestCheckedException();
 
-        TryCatch.tryCatch(() -> {
+        TryCatch.tryCatch(
+                () -> {
                     throw testCheckedException;
                 },
                 e -> assertEquals(testCheckedException, e)
@@ -55,8 +56,31 @@ class TryCatchTest {
 
     @Test
     void tryCatch_When_RunnableDoesNotThrow() {
-        assertDoesNotThrow(() -> TryCatch.tryCatch(() -> {
+        assertDoesNotThrow(() -> TryCatch.tryCatch(
+                () -> {
                 },
+                e -> {
+                    throw new RuntimeException(e);
+                }
+        ));
+    }
+
+    @Test
+    void rethrowOnException_With_Consumer_When_SupplierThrows() {
+        TestCheckedException testCheckedException = new TestCheckedException();
+
+        assertThrows(TestCheckedException.class, () -> TryCatch.rethrowOnException(
+                () -> {
+                    throw testCheckedException;
+                },
+                e -> assertEquals(testCheckedException, e)
+        ));
+    }
+
+    @Test
+    void rethrowOnException_With_Consumer_When_SupplierDoesNotThrow() {
+        assertDoesNotThrow(() -> TryCatch.rethrowOnException(
+                () -> null,
                 e -> {
                     throw new RuntimeException(e);
                 }

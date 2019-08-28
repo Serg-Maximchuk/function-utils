@@ -8,11 +8,11 @@ Java 11
 <dependency>
   <groupId>io.github.serg-maximchuk</groupId>
   <artifactId>function-utils</artifactId>
-  <version>1.1.2</version>
+  <version>1.1.3</version>
 </dependency>
 ```
 ```groovy
-compile group: 'io.github.serg-maximchuk', name: 'function-utils', version: '1.1.2'
+compile group: 'io.github.serg-maximchuk', name: 'function-utils', version: '1.1.3'
 ```
 Java 8 suport:
 ```xml
