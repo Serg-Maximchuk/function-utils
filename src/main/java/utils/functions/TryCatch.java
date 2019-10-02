@@ -52,28 +52,6 @@ public final class TryCatch {
 
     /**
      * Will try to return value from {@code supplier} with
-     * {@code fallbackSupplier} as a fallback
-     * {@link ThrowingSupplier}. It is relayed to caller to
-     * deal with {@link Exception} in fallback
-     * {@link ThrowingSupplier}
-     *
-     * @return the {@code supplier} or {@code fallbackSupplier} result
-     * @see #tryCatch(ThrowingRunnable, ThrowingConsumer)
-     * @see #tryCatch(ThrowingSupplier, ThrowingFunction)
-     */
-    public static <T> T tryCatch(
-            ThrowingSupplier<? extends T> supplier,
-            ThrowingSupplier<? extends T> fallbackSupplier
-    ) {
-        try {
-            return supplier.get();
-        } catch (Exception e) {
-            return fallbackSupplier.get();
-        }
-    }
-
-    /**
-     * Will try to return value from {@code supplier} with
      * {@code fallback} as a {@code exception -> value}
      * {@link ThrowingFunction}. It is relayed to caller to
      * deal with {@link Exception} in fallback
@@ -81,9 +59,8 @@ public final class TryCatch {
      *
      * @return the {@code supplier} or {@code fallback} result
      * @see #tryCatch(ThrowingRunnable, ThrowingConsumer)
-     * @see #tryCatch(ThrowingSupplier, ThrowingSupplier)
      */
-    public static <T> T tryCatch(
+    public static <T> T tryCatchFallback(
             ThrowingSupplier<? extends T> supplier,
             ThrowingFunction<Exception, ? extends T> fallback
     ) {
@@ -96,8 +73,7 @@ public final class TryCatch {
 
     /**
      * Just functional replacement for common void try/catch block
-     * @see #tryCatch(ThrowingSupplier, ThrowingFunction)
-     * @see #tryCatch(ThrowingSupplier, ThrowingSupplier)
+     * @see #tryCatchFallback(ThrowingSupplier, ThrowingFunction)
      */
     public static void tryCatch(ThrowingRunnable runnable, ThrowingConsumer<Exception> onException) {
         try {

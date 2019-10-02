@@ -52,9 +52,7 @@ class TryCatchTest {
                 () -> {
                     throw testCheckedException;
                 },
-                e -> {
-                    assertEquals(testCheckedException, e);
-                }
+                e -> assertEquals(testCheckedException, e)
         );
     }
 
@@ -70,36 +68,8 @@ class TryCatchTest {
     }
 
     @Test
-    void tryCatch_When_SupplierThrows_Expect_FallbackSupplierValueReceived() {
-        String result = TryCatch.tryCatch(
-                () -> {
-                    if (Instant.now().toEpochMilli() > 0) {
-                        throw new TestCheckedException();
-                    }
-                    return null;
-                },
-                () -> EXPECTED
-        );
-
-        assertEquals(EXPECTED, result);
-    }
-
-    @Test
-    void tryCatch_When_SupplierDoesNotThrow_Expect_SupplierValueReturned() {
-        assertEquals(EXPECTED, TryCatch.tryCatch(
-                () -> EXPECTED,
-                () -> {
-                    if (Instant.now().toEpochMilli() > 0) {
-                        throw new TestCheckedException();
-                    }
-                    return null;
-                }
-        ));
-    }
-
-    @Test
     void tryCatch_When_SupplierThrows_Expect_FallbackFunctionValueReceived() {
-        String result = TryCatch.tryCatch(
+        String result = TryCatch.tryCatchFallback(
                 () -> {
                     if (Instant.now().toEpochMilli() > 0) {
                         throw new TestCheckedException();
@@ -114,7 +84,7 @@ class TryCatchTest {
 
     @Test
     void tryCatch_When_SupplierDoesNotThrow_Expect_SupplierValueReturned_2() {
-        assertEquals(EXPECTED, TryCatch.tryCatch(
+        assertEquals(EXPECTED, TryCatch.tryCatchFallback(
                 () -> EXPECTED,
                 e -> {
                     throw new TestCheckedException();
