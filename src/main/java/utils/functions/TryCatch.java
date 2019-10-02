@@ -1,5 +1,6 @@
 package utils.functions;
 
+@SuppressWarnings("WeakerAccess")
 public final class TryCatch {
 
     /**
