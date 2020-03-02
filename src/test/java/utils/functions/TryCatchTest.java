@@ -3,6 +3,7 @@ package utils.functions;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.Instant;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -107,6 +108,7 @@ class TryCatchTest {
         );
 
         assertEquals(EXPECTED, result);
+        assertTrue(wasExecuted.get());
     }
 
     @Test
