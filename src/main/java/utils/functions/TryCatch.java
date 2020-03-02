@@ -31,9 +31,12 @@ public final class TryCatch {
         try {
             return supplier.get();
         } catch (Exception e) {
-            onException.accept(e);
-            //noinspection RedundantTypeArguments
-            throw Functions.<RuntimeException>sneakyThrow(e);
+            try {
+                onException.accept(e);
+            } catch (Exception e1) {
+                e.addSuppressed(e1);
+            }
+            throw e;
         }
     }
 
@@ -43,19 +46,12 @@ public final class TryCatch {
      * @see #rethrowOnException(ThrowingSupplier)
      */
     public static void rethrowOnException(ThrowingRunnable runnable) {
-        try {
-            runnable.run();
-        } catch (Exception e) {//noinspection RedundantTypeArguments
-            throw Functions.<RuntimeException>sneakyThrow(e);
-        }
+        runnable.run();
     }
 
     /**
-     * Will try to return value from {@code supplier} with
-     * {@code fallback} as a {@code exception -> value}
-     * {@link ThrowingFunction}. It is relayed to caller to
-     * deal with {@link Exception} in fallback
-     * {@link ThrowingFunction}
+     * Will try to return value from {@code supplier} with {@code fallback} as a {@code exception -> value} {@link
+     * ThrowingFunction} in case of fail. If {@code fallback} fails too with {@code Exception}, the origin
      *
      * @return the {@code supplier} or {@code fallback} result
      * @see #tryCatch(ThrowingRunnable, ThrowingConsumer)
@@ -67,19 +63,30 @@ public final class TryCatch {
         try {
             return supplier.get();
         } catch (Exception e) {
-            return fallback.apply(e);
+            try {
+                return fallback.apply(e);
+            } catch (Exception e1) {
+                e.addSuppressed(e1);
+                throw e;
+            }
         }
     }
 
     /**
      * Just functional replacement for common void try/catch block
+     *
      * @see #tryCatchFallback(ThrowingSupplier, ThrowingFunction)
      */
     public static void tryCatch(ThrowingRunnable runnable, ThrowingConsumer<Exception> onException) {
         try {
             runnable.run();
         } catch (Exception e) {
-            onException.accept(e);
+            try {
+                onException.accept(e);
+            } catch (Exception e1) {
+                e.addSuppressed(e1);
+                throw e;
+            }
         }
     }
 
