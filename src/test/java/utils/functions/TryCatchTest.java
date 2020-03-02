@@ -1,10 +1,13 @@
 package utils.functions;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.time.Instant;
+import java.util.concurrent.atomic.AtomicBoolean;
+
+import org.junit.jupiter.api.Test;
 
 class TryCatchTest {
 
@@ -84,6 +87,30 @@ class TryCatchTest {
 
     @Test
     void tryCatch_When_SupplierDoesNotThrow_Expect_SupplierValueReturned_2() {
+        assertEquals(EXPECTED, TryCatch.tryCatchFallback(
+                () -> EXPECTED,
+                e -> {
+                    throw new TestCheckedException();
+                }
+        ));
+    }
+
+    @Test
+    void tryCatchFallback_When_SupplierThrows_Expect_FallbackFunctionValueReceived() {
+        AtomicBoolean wasExecuted = new AtomicBoolean(false);
+        String result = TryCatch.tryCatchFallback(
+                () -> {
+                    throw new TestCheckedException();
+                },
+                e -> wasExecuted.set(false),
+                () -> EXPECTED
+        );
+
+        assertEquals(EXPECTED, result);
+    }
+
+    @Test
+    void tryCatchFallback_When_SupplierDoesNotThrow_Expect_SupplierValueReturned_2() {
         assertEquals(EXPECTED, TryCatch.tryCatchFallback(
                 () -> EXPECTED,
                 e -> {

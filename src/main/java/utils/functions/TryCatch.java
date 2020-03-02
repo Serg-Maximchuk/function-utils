@@ -55,6 +55,7 @@ public final class TryCatch {
      *
      * @return the {@code supplier} or {@code fallback} result
      * @see #tryCatch(ThrowingRunnable, ThrowingConsumer)
+     * @see #tryCatchFallback(ThrowingSupplier, ThrowingConsumer, ThrowingSupplier)
      */
     public static <T> T tryCatchFallback(
             ThrowingSupplier<? extends T> supplier,
@@ -67,6 +68,36 @@ public final class TryCatch {
                 return fallback.apply(e);
             } catch (Exception e1) {
                 e.addSuppressed(e1);
+                throw e;
+            }
+        }
+    }
+
+    /**
+     * Will try to return value from {@code supplier} with {@code ThrowingConsumer<Exception> onError} and {@code
+     * fallback}. It's up to caller to deal with {@link Exception} in {@code onError} and {@code fallback}.
+     *
+     * @return the {@code supplier} or {@code fallback} result
+     * @see #tryCatchFallback(ThrowingSupplier, ThrowingFunction)
+     */
+    public static <T> T tryCatchFallback(
+            ThrowingSupplier<? extends T> supplier,
+            ThrowingConsumer<Exception> onError,
+            ThrowingSupplier<? extends T> fallback
+    ) {
+        try {
+            return supplier.get();
+        } catch (Exception e) {
+            try {
+                onError.accept(e);
+            } catch (Exception e1) {
+                e.addSuppressed(e1);
+                throw e;
+            }
+            try {
+                return fallback.get();
+            } catch (Exception e2) {
+                e.addSuppressed(e2);
                 throw e;
             }
         }
