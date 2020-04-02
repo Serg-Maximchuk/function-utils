@@ -103,7 +103,7 @@ class TryCatchTest {
                 () -> {
                     throw new TestCheckedException();
                 },
-                e -> wasExecuted.set(false),
+                e -> wasExecuted.set(true),
                 () -> EXPECTED
         );
 
