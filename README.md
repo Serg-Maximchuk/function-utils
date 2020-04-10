@@ -4,15 +4,20 @@ https://mvnrepository.com/artifact/io.github.serg-maximchuk/function-utils
 
 Java 11
 
+```groovy
+compile 'io.github.serg-maximchuk:function-utils:1.1.6'
+```
+Or
+```groovy
+compile group: 'io.github.serg-maximchuk', name: 'function-utils', version: '1.1.6'
+```
+Or
 ```xml
 <dependency>
   <groupId>io.github.serg-maximchuk</groupId>
   <artifactId>function-utils</artifactId>
   <version>1.1.6</version>
 </dependency>
-```
-```groovy
-compile group: 'io.github.serg-maximchuk', name: 'function-utils', version: '1.1.6'
 ```
 Java 8 suport:
 ```xml
