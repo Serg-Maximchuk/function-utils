@@ -1,5 +1,7 @@
 # Java functional utils
 
+![](https://img.shields.io/maven-central/v/io.github.serg-maximchuk/function-utils)
+
 https://mvnrepository.com/artifact/io.github.serg-maximchuk/function-utils
 
 Java 11
